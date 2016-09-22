@@ -1,7 +1,73 @@
 <!DOCTYPE html>
+
 <html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
+
+    <head>
+        <style>
+            body{
+                background-color: black;
+            }
+            
+            #row div{
+                display: inline-block;
+            }
+            #row div.active{
+                background-color: white;
+            }
+            #row div.inactive{
+                background-color: darkslategray;
+            }
+            .square {
+                /* width within the parent.
+                can be any percentage. */
+                width: 0.99%;
+                background-color: aquamarine;
+            }
+            
+            .square:before {
+                content: "";
+                float:left;
+                
+                /* essentially the aspect ratio. 100% means the
+                div will remain 100% as tall as it is wide, or
+                square in other words.  */
+                padding-bottom: 100%;
+            }
+            /* this is a clearfix. you can use whatever
+            clearfix you usually use, add
+            overflow:hidden to the parent element,
+            or simply float the parent container. */
+            .square:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        </style>
+    </head>
+    
+    <body>
+        
+        <div id="row"></div>
+        
+        <script>
+            function RandBin() {
+                let max = 1;
+                let min = 0;
+                return Math.floor(Math.random()*(max-min+1))
+            } 
+
+            for(let i = 0; i < 101; i++){
+                let Cell = document.createElement("div");
+                Cell.classList.add("square");
+                if(RandBin() == 1){
+                    Cell.classList.add("active");
+                } else{
+                    Cell.classList.add("inactive");
+                }
+                document.getElementById("row").appendChild(Cell);
+            }
+            
+        </script>
+    </body>
+
 </html>
