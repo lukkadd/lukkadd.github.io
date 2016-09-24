@@ -7,14 +7,18 @@
             body{
                 background-color: black;
             }
-            
-            #row div{
+            .main div{
+                margin: 0;
+                padding: 0;
+                display: flex;
+            }
+            .row div{
                 display: inline-block;
             }
-            #row div.active{
+            .row div.active{
                 background-color: white;
             }
-            #row div.inactive{
+            .row div.inactive{
                 background-color: darkslategray;
             }
             .square {
@@ -47,7 +51,9 @@
     
     <body>
         
-        <div id="row"></div>
+        <div class="main">
+            <div class="row"></div>
+        </div>
         
         <script>
             function RandBin() {
@@ -64,8 +70,16 @@
                 } else{
                     Cell.classList.add("inactive");
                 }
-                document.getElementById("row").appendChild(Cell);
+                document.querySelector(".row").appendChild(Cell);
             }
+            
+            function DoubleRow() {
+                let allRows = document.querySelectorAll(".row");
+                let lastRow = allRows[allRows.length - 1];
+                let newRow = lastRow.cloneNode(true);
+                document.querySelector(".main").appendChild(newRow);
+            }
+            DoubleRow();
             
         </script>
     </body>
