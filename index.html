@@ -55,32 +55,7 @@
             <div class="row"></div>
         </div>
         
-        <script>
-            function RandBin() {
-                let max = 1;
-                let min = 0;
-                return Math.floor(Math.random()*(max-min+1))
-            } 
-
-            for(let i = 0; i < 101; i++){
-                let Cell = document.createElement("div");
-                Cell.classList.add("square");
-                if(RandBin() == 1){
-                    Cell.classList.add("active");
-                } else{
-                    Cell.classList.add("inactive");
-                }
-                document.querySelector(".row").appendChild(Cell);
-            }
-            
-            function DoubleRow() {
-                let allRows = document.querySelectorAll(".row");
-                let lastRow = allRows[allRows.length - 1];
-                let newRow = lastRow.cloneNode(true);
-                document.querySelector(".main").appendChild(newRow);
-            }
-            DoubleRow();
-            
+        <script src="scripts.js">
         </script>
     </body>
 
