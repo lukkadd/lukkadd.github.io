@@ -1,62 +1,15 @@
 <!DOCTYPE html>
-
-<html>
-
-    <head>
-        <style>
-            body{
-                background-color: black;
-            }
-            .main div{
-                margin: 0;
-                padding: 0;
-                display: flex;
-            }
-            .row div{
-                display: inline-block;
-            }
-            .row div.active{
-                background-color: white;
-            }
-            .row div.inactive{
-                background-color: darkslategray;
-            }
-            .square {
-                /* width within the parent.
-                can be any percentage. */
-                width: 0.99%;
-                background-color: aquamarine;
-            }
-            
-            .square:before {
-                content: "";
-                float:left;
-                
-                /* essentially the aspect ratio. 100% means the
-                div will remain 100% as tall as it is wide, or
-                square in other words.  */
-                padding-bottom: 100%;
-            }
-            /* this is a clearfix. you can use whatever
-            clearfix you usually use, add
-            overflow:hidden to the parent element,
-            or simply float the parent container. */
-            .square:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-        </style>
-    </head>
-    
-    <body>
-        
-        <div class="main">
-            <div class="row"></div>
-        </div>
-        
-        <script src="scripts.js">
-        </script>
-    </body>
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
+</head>
+<body>
+    <h1>Examples</h1>
+    <a href="./CelAutomata/celular_automata.html">
+        <h3>Celular Automata</h3>
+    </a>
+</body>
 </html>
