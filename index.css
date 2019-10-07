@@ -1,0 +1,10 @@
+:root {
+    --image-path: url("https://images.pexels.com/photos/2976176/pexels-photo-2976176.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+
+}
+
+.image{
+    height: 500px;
+    background-image: var(--image-path);   
+    background-size: 500px;
+}
