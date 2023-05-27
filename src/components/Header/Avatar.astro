@@ -1,0 +1,64 @@
+---
+export interface Props {
+    src: string
+    size: number
+    className?: string
+}
+
+const { src, size, className } = Astro.props
+---
+
+<div class:list={["flex-shrink-0 max-w-max m-auto", className]}>
+    <div class="wrapper relative">
+        <div class="frame h-[70%] w-[70%]">
+            <div class="left-chevron"></div>
+
+            <div class="right-chevron"></div>
+        </div>
+        <div class="frame h-[64%] w-[64%]">
+            <div class="right-chevron"></div>
+        </div>
+        <img src={src} width={size} alt="Avatar" class="avatar" />
+    </div>
+</div>
+
+<style define:vars={{ size }}>
+    .avatar {
+        vertical-align: middle;
+        /* border-radius: 50%; */
+        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    }
+    .frame {
+        position: absolute;
+
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+    .right-chevron {
+        position: absolute;
+
+        height: 100%;
+        width: 100%;
+
+        transform: translateX(25%) translateY(-25%);
+
+        rotate: 45deg;
+
+        border-top: 2px solid white;
+        border-right: 2px solid white;
+    }
+    .left-chevron {
+        position: absolute;
+
+        height: 100%;
+        width: 100%;
+
+        transform: translateX(-25%) translateY(25%);
+
+        rotate: 45deg;
+
+        border-left: 2px solid white;
+        border-bottom: 2px solid white;
+    }
+</style>
