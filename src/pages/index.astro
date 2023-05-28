@@ -1,13 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Card from "../components/Card.astro"
-import Header from "../components/Header/Header.astro"
 ---
 
 <Layout title="Welcome to Astro.">
-    <main class="relative">
-        <Header />
-        <div class="mt-8"></div>
+    <main class="custom-container">
         <h1 class="text-white">Welcome to</h1>
         <ul role="list" class="link-card-grid">
             <Card
@@ -19,15 +16,4 @@ import Header from "../components/Header/Header.astro"
     </main>
 </Layout>
 
-<style>
-    main {
-        margin: auto;
-        padding: 1.5rem;
-        max-width: 80ch;
-    }
-    h1 {
-        font-size: 3rem;
-        font-weight: 800;
-        margin: 0;
-    }
-</style>
+<style></style>
