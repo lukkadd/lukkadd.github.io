@@ -7,6 +7,12 @@ module.exports = {
                 display: ["Astro"],
                 body: ["Quicksand"],
             },
+            colors: {
+                purple: {
+                    dark: "#0f0c29",
+                    light: "#302b63",
+                },
+            },
         },
     },
     plugins: [

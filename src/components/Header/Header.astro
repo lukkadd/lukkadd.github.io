@@ -13,7 +13,7 @@ import Avatar from "./Avatar.astro"
             </p>
         </section>
 
-        <div class="sm:w-full sm:grid sm:grid-cols-[1fr_165px_1fr]">
+        <div class="sm:w-full sm:grid sm:grid-cols-[1fr_190px_1fr]">
             <nav class="half-nav">
                 <ul>
                     <li><a href="#">Games</a></li>
@@ -43,6 +43,9 @@ import Avatar from "./Avatar.astro"
         text-decoration: underline;
     }
 
+    /* This is the same as the content-container,
+       but I left it as a separate class in case I want to
+       use different widths for the header and the rest of the content */
     header {
         margin: auto;
         padding: 1.5rem;
