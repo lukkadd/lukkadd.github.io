@@ -2,58 +2,62 @@
 import Avatar from "./Avatar.astro"
 ---
 
-<header class="text-white custom-container p-0 relative">
-    <div class="xl:float-left xl:absolute xl:w-40 xl:-left-44 p-6">
-        <div
-            class="flex gap-4 sm:flex-col-reverse justify-between items-center"
-        >
-            <section id="info-lucca">
-                <a href="#">
-                    <h2 class="font-display sm:text-center">
-                        Lucca Del Debbio
-                    </h2>
-                </a>
-                <p class="font-body text-sm opacity-80 sm:text-center">
-                    <i>Developer, Maker and self-identified Crazy Scientist</i>
-                </p>
-            </section>
+<header class="text-white p-6">
+    <div class="flex gap-4 sm:flex-col-reverse justify-between items-center">
+        <section id="info-lucca">
+            <a href="#">
+                <h2 class="font-display sm:text-center">Lucca Del Debbio</h2>
+            </a>
+            <p class="font-body text-sm opacity-80 sm:text-center">
+                <i>Developer, Maker and self-identified Crazy Scientist</i>
+            </p>
+        </section>
 
-            <div class="sm:w-full sm:grid sm:grid-cols-3 xl:grid-cols-1">
-                <nav class="half-nav">
-                    <ul>
-                        <li><a href="#">Games</a></li>
-                        <li><a href="#">Blog</a></li>
-                    </ul>
-                </nav>
-                <Avatar size={80} src="/avatar.jpg" />
-                <nav class="half-nav">
-                    <ul>
-                        <li><a href="#">Projects</a></li>
-                        <li><a href="#">About</a></li>
-                    </ul>
-                </nav>
-            </div>
+        <div class="sm:w-full sm:grid sm:grid-cols-[1fr_165px_1fr]">
+            <nav class="half-nav">
+                <ul>
+                    <li><a href="#">Games</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </nav>
+            <Avatar size={80} src="/avatar.jpg" />
+            <nav class="half-nav">
+                <ul>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav class="full-nav">
-            <ul>
-                <li><a href="#">Games</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">About</a></li>
-            </ul>
-        </nav>
     </div>
+    <nav class="full-nav">
+        <ul>
+            <li><a href="#">Games</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
 </header>
 <style>
     a:hover {
         text-decoration: underline;
     }
 
+    header {
+        margin: auto;
+        padding: 1.5rem;
+        max-width: 100ch;
+    }
+
     .full-nav ul {
-        @apply sm:hidden xl:block xl:text-right flex justify-evenly border-t-2 border-b-2 py-2 mt-4;
+        @apply sm:hidden flex justify-evenly border-t-2 border-b-2 py-2 mt-4;
+    }
+
+    .half-nav {
+        @apply flex flex-col justify-center;
     }
 
     .half-nav ul {
-        @apply hidden xl:hidden sm:flex sm:justify-evenly sm:items-center my-auto h-3/4 border-t-2 border-b-2;
+        @apply hidden sm:flex sm:justify-evenly sm:items-center h-3/4 border-t-2 border-b-2;
     }
 </style>
