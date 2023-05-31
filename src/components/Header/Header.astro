@@ -5,8 +5,10 @@ import Avatar from "./Avatar.astro"
 <header class="text-white p-6">
     <div class="flex gap-4 sm:flex-col-reverse justify-between items-center">
         <section id="info-lucca">
-            <a href="#">
-                <h2 class="font-display sm:text-center">Lucca Del Debbio</h2>
+            <a href="#" class="name-anchor">
+                <h2 class="font-display sm:text-center text-glow-sm-white">
+                    <span class="firstName">Lucca</span><span> Del Debbio</span>
+                </h2>
             </a>
             <p class="font-body text-sm opacity-80 sm:text-center">
                 <i>Developer, Maker and self-identified Crazy Scientist</i>
@@ -39,8 +41,15 @@ import Avatar from "./Avatar.astro"
     </nav>
 </header>
 <style>
-    a:hover {
-        text-decoration: underline;
+    nav a:hover {
+        @apply underline text-blue-accent text-glow-sm-blue-accent;
+    }
+    .name-anchor:hover span {
+        @apply underline;
+    }
+
+    h2 .firstName {
+        @apply text-blue-accent text-glow-sm-blue-accent decoration-blue-accent;
     }
 
     /* This is the same as the content-container,

@@ -56,21 +56,20 @@ const { title } = Astro.props
         ); /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(
             to right,
-            theme("colors.purple.dark"),
-            theme("colors.purple.light") 45% 55%,
-            theme("colors.purple.dark")
+
+            #2d2928,
+            #403a3a 45% 55%,
+
+            #2d2928
         ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
     body {
         min-height: 100vh;
+        font-family: "Quicksand";
     }
 
     code {
         font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
             DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-    }
-
-    .content-container {
-        @apply m-auto p-[1.5rem] max-w-[100ch];
     }
 </style>
