@@ -24,9 +24,12 @@ const { src, size, className } = Astro.props
 
 <style define:vars={{ size }}>
     .avatar {
+        object-fit: cover;
+        aspect-ratio: 1/1;
         vertical-align: middle;
         /* border-radius: 50%; */
         clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+        filter: saturate(25%);
     }
     .frame {
         position: absolute;
@@ -45,8 +48,8 @@ const { src, size, className } = Astro.props
 
         rotate: 45deg;
 
-        border-top: 2px solid white;
-        border-right: 2px solid white;
+        border-top: 2px solid theme("colors.offwhite");
+        border-right: 2px solid theme("colors.offwhite");
     }
     .left-chevron {
         position: absolute;
@@ -58,7 +61,7 @@ const { src, size, className } = Astro.props
 
         rotate: 45deg;
 
-        border-left: 2px solid white;
-        border-bottom: 2px solid white;
+        border-left: 2px solid theme("colors.offwhite");
+        border-bottom: 2px solid theme("colors.offwhite");
     }
 </style>

@@ -10,6 +10,7 @@ module.exports = {
             fontFamily: {
                 display: ["Astro"],
                 body: ["Quicksand"],
+                nasa: ["Nasalization"],
             },
             colors: {
                 purple: {
@@ -19,10 +20,10 @@ module.exports = {
                 gray: {
                     darkest: "#0d0908",
                     dark: "#151110",
-                    medium: "#252120",
-                    light: "#403a3a",
+                    medium: "#212121",
+                    light: "#414141",
                 },
-                offwhite: "#e1d2ac",
+                offwhite: "#d9c8a9",
                 blue: {
                     accent: "#8bc4c2",
                 },
@@ -35,7 +36,7 @@ module.exports = {
                 ".ccontainer": {
                     margin: "auto",
                     padding: "1.5rem",
-                    maxWidth: "100ch",
+                    maxWidth: "80ch",
                 },
             }),
                 matchUtilities(
