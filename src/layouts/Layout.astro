@@ -43,6 +43,14 @@ const { title } = Astro.props
         font-display: swap;
     }
 
+    @font-face {
+        font-family: Nasalization;
+        src: url("/fonts/Nasalization.otf") format("opentype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+
     :root {
     }
     html {
@@ -58,8 +66,8 @@ const { title } = Astro.props
             to right,
 
             theme("colors.gray.medium"),
-            theme("colors.gray.light") 45% 55%,
-            theme("colors.gray.medium")
+            /* theme("colors.gray.light") 45% 55%, */
+                theme("colors.gray.medium")
         ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
     body {

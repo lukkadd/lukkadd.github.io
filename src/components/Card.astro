@@ -1,63 +1,71 @@
 ---
 export interface Props {
-	title: string;
-	body: string;
-	href: string;
+    title: string
+    body: string
+    href: string
 }
 
-const { href, title, body } = Astro.props;
+const { href, title, body } = Astro.props
 ---
 
-<li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
+<li class="border-2 border-blue-accent relative">
+    <h3 class="text-gray-medium font-nasa bg-offwhite m-3 pl-2 uppercase">
+        {title} - [<span class="font-bold mx-2">1</span>, <span
+            class="underline hover:text-white hover:text-glow-md-white">2</span
+        >, 3]
+    </h3>
+    <div class="flex m-3 h-56">
+        <div class="border-2 border-offwhite relative h-full aspect-square">
+            <p class="absolute top-0 left-0 bottom-0 right-0 text-offwhite">
+                FAKE IMAGE
+            </p>
+        </div>
+        <div class="flex flex-col ml-2 gap-2">
+            <div class="flex justify-between">
+                <p class="text-offwhite">
+                    <span class="uppercase font-nasa font-normal">author:</span>
+                    Lucca Del Debbio
+                </p>
+                <p class="text-offwhite">
+                    <span class="uppercase font-nasa font-normal"
+                        >Star date:</span
+                    > 2023-06-01
+                </p>
+            </div>
+            <div class="flex-grow">
+                <p class="content text-offwhite text-ellipsis">
+                    {body}
+                </p>
+            </div>
+            <a
+                href={href}
+                class="text-gray-medium bg-blue-accent float-right self-end font-nasa px-2"
+                >Read more...</a
+            >
+        </div>
+    </div>
+    <div
+        class="absolute bg-blue-accent -top-5 -right-3 border-8 border-gray-medium font-nasa font-semibold px-1"
+    >
+        #1
+    </div>
+    <p
+        class="text-offwhite absolute right-2 -bottom-3 bg-gray-medium px-2 font-nasa text-sm align-center flex items-end gap-[2px]"
+    >
+        <!-- <span>Read more...</span> -->
+        <span class="hover:text-base hover:text-blue-accent">/GameDev</span>
+        <span class="hover:text-base hover:text-blue-accent">/Discussion</span>
+        <span class="hover:text-base hover:text-blue-accent">/Maths</span>
+        <span class="hover:text-base hover:text-blue-accent"
+            >/Machine Learning</span
+        >
+    </p>
 </li>
 <style>
-	.link-card {
-		list-style: none;
-		display: flex;
-		padding: 0.25rem;
-		background-color: white;
-		background-image: none;
-		background-size: 400%;
-		border-radius: 0.6rem;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-	}
-
-	.link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: 1rem 1.3rem;
-		border-radius: 0.35rem;
-		color: #111;
-		background-color: white;
-		opacity: 0.8;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	p {
-		margin-top: 0.5rem;
-		margin-bottom: 0;
-		color: #444;
-	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
-	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent));
-	}
+    .content {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 6;
+        overflow: hidden;
+    }
 </style>
