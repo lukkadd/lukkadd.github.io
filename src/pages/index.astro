@@ -4,20 +4,16 @@ import Layout from "../layouts/Layout.astro"
 ---
 
 <Layout title="Lucca Del Debbio">
-    <div class="relative h-screen">
+    <div class="h-screen w-screen flex flex-col justify-center">
         <h1
-            class="text-white font-bold text-3xl sm:text-6xl font-mono text-center pt-28"
+            class="text-white font-bold text-3xl sm:text-6xl font-mono text-center"
         >
             UNDER MAINTENANCE
         </h1>
-        <p class="text-offwhite text-lg sm:text-xl text-center">
+        <p class="text-offwhite text-lg sm:text-xl text-center mb-8">
             Soon to be a site by:
         </p>
-        <div
-            class="absolute left-0 top-0 h-screen w-screen flex flex-col justify-center"
-        >
-            <Hero />
-        </div>
+        <Hero />
     </div>
 </Layout>
 
