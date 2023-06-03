@@ -1,0 +1,121 @@
+---
+export interface Props {
+    title: string
+    id: number
+    body: string
+    href: string
+    tags: string[]
+    relatedUrls: string[]
+    author: string
+    publishedDate: string
+    image: { url: string; alt: string }
+}
+
+const {
+    href,
+    title,
+    id,
+    body,
+    tags,
+    relatedUrls,
+    author,
+    publishedDate,
+    image,
+} = Astro.props
+
+const filteredTags = tags.slice(0, 4)
+---
+
+<li class="border-2 border-blue-accent relative">
+    <h3 class="title">
+        <a href={href}>{title}</a>
+        {
+            relatedUrls.length > 0 && (
+                <>
+                    - [
+                    {relatedUrls.map((url, index) => {
+                        return (
+                            <span>
+                                <a href={url}>{index + 1}</a>
+                                {index != relatedUrls.length - 1 && "a"}
+                            </span>
+                        )
+                    })}
+                    ]
+                </>
+            )
+        }
+    </h3>
+    <div class="flex flex-col sm:flex-row sm:h-56 m-3 gap-3">
+        <img
+            src={image.url}
+            alt={image.alt}
+            class="border-2 border-offwhite relative flex-shrink-0 h-full sm:aspect-[4/3] object-cover"
+        />
+        <div class="flex-grow flex flex-col gap-2">
+            <div class="flex justify-between text-offwhite">
+                <p>
+                    <label>author:</label>
+                    <span class="inline-block">{author}</span>
+                </p>
+                <p>
+                    <label>Star date:</label>
+                    <span class="inline-block">{publishedDate}</span>
+                </p>
+            </div>
+            <div class="flex-grow">
+                <p class="content text-offwhite text-ellipsis">
+                    {body}
+                </p>
+            </div>
+            <a
+                href={href}
+                class="text-gray-medium bg-blue-accent float-right self-end font-nasa px-2"
+                >Read more...</a
+            >
+        </div>
+    </div>
+    <div
+        class="absolute bg-blue-accent -top-5 -right-3 border-8 border-gray-medium font-nasa font-semibold px-1 text-gray-medium"
+    >
+        #{id}
+    </div>
+    <ul class="tag-list">
+        {
+            filteredTags.map((tag) => (
+                <li>
+                    <a href={"/tags/" + tag}>/{tag}</a>
+                </li>
+            ))
+        }
+    </ul>
+
+    <style>
+        .title {
+            @apply m-3 pl-2 block bg-offwhite font-nasa uppercase text-gray-medium;
+        }
+        .title a {
+            @apply hover:text-white underline;
+        }
+
+        .content {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 6;
+            overflow: hidden;
+        }
+
+        label {
+            @apply uppercase font-nasa font-normal;
+        }
+
+        .tag-list {
+            @apply text-offwhite bg-gray-medium font-nasa text-sm whitespace-nowrap;
+            @apply absolute right-2 -bottom-3 px-2 flex items-end gap-[2px] max-w-[95%] overflow-hidden;
+        }
+
+        .tag-list li {
+            @apply hover:text-base hover:text-blue-accent;
+        }
+    </style>
+</li>

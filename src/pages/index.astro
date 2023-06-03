@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Card from "../components/Card.astro"
+let allPosts = await Astro.glob("../pages/posts/*.md")
+allPosts = allPosts.slice(0, 4)
+---
+
+<Layout title="Welcome to Astro.">
+    <main class="ccontainer">
+        <h1 class="text-offwhite">Recent posts</h1>
+
+        <ul role="list" class="link-card-grid text-white">
+            {
+                allPosts.map((post) => (
+                    <Card
+                        href={post.url}
+                        id={post.frontmatter.id}
+                        image={post.frontmatter.image}
+                        title={post.frontmatter.title}
+                        author={post.frontmatter.author}
+                        publishedDate={post.frontmatter.pubDate.slice(0, 10)}
+                        body={post.frontmatter.description}
+                        tags={post.frontmatter.tags}
+                        relatedUrls={post.frontmatter.relatedUrls}
+                    />
+                ))
+            }
+        </ul>
+    </main>
+</Layout>
+
+<style></style>
