@@ -1,18 +1,30 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Card from "../components/Card.astro"
+let allPosts = await Astro.glob("../pages/posts/*.md")
+allPosts = allPosts.slice(0, 4)
 ---
 
 <Layout title="Welcome to Astro.">
     <main class="ccontainer">
         <h1 class="text-offwhite">Recent posts</h1>
 
-        <ul role="list" class="link-card-grid">
-            <Card
-                href="#"
-                title="The indiana Conjecture"
-                body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a commodo eros. Morbi augue neque, venenatis ac varius feugiat, accumsan eu neque. Cras eu ligula finibus, dapibus lorem vel, varius quam. Nulla semper molestie ex lobortis eleifend. Curabitur augue eros, consequat sed ullamcorper quis, semper ut turpis. Quisque non ante sollicitudin, imperdiet risus eget, euismod purus. Maecenas at magna et est posuere malesuada. Fusce varius tristique nisl, auctor commodo est feugiat tempus. In lobortis mauris ut eros hendrerit blandit. Curabitur mattis metus et massa aliquam tincidunt. Integer ac lacus vehicula, porta magna at, laoreet velit. Phasellus mi libero, aliquet vel sodales non, pellentesque a nulla. Suspendisse varius a odio sed malesuada. Phasellus tristique ut nunc semper lobortis. Curabitur maximus elit a lectus blandit, eu facilisis quam congue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
-            />
+        <ul role="list" class="link-card-grid text-white">
+            {
+                allPosts.map((post) => (
+                    <Card
+                        href={post.url}
+                        id={post.frontmatter.id}
+                        image={post.frontmatter.image}
+                        title={post.frontmatter.title}
+                        author={post.frontmatter.author}
+                        publishedDate={post.frontmatter.pubDate.slice(0, 10)}
+                        body={post.frontmatter.description}
+                        tags={post.frontmatter.tags}
+                        relatedUrls={post.frontmatter.relatedUrls}
+                    />
+                ))
+            }
         </ul>
     </main>
 </Layout>
