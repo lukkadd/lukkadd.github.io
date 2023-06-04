@@ -22,8 +22,6 @@ const {
     publishedDate,
     image,
 } = Astro.props
-
-const filteredTags = tags.slice(0, 4)
 ---
 
 <li class="border-2 border-blue-accent relative">
@@ -53,7 +51,7 @@ const filteredTags = tags.slice(0, 4)
             class="border-2 border-offwhite relative flex-shrink-0 h-full sm:aspect-[4/3] object-cover"
         />
         <div class="flex-grow flex flex-col gap-2">
-            <div class="flex justify-between text-offwhite">
+            <div class="flex justify-between gap-2 text-offwhite">
                 <p>
                     <label>author:</label>
                     <span class="inline-block">{author}</span>
@@ -82,7 +80,7 @@ const filteredTags = tags.slice(0, 4)
     </div>
     <ul class="tag-list">
         {
-            filteredTags.map((tag) => (
+            tags.map((tag) => (
                 <li>
                     <a href={"/tags/" + tag}>/{tag}</a>
                 </li>
@@ -94,7 +92,7 @@ const filteredTags = tags.slice(0, 4)
         .title {
             @apply m-3 pl-2 block bg-offwhite font-nasa uppercase text-gray-medium;
         }
-        .title a {
+        .title span a {
             @apply hover:text-white underline;
         }
 
@@ -110,12 +108,12 @@ const filteredTags = tags.slice(0, 4)
         }
 
         .tag-list {
-            @apply text-offwhite bg-gray-medium font-nasa text-sm whitespace-nowrap;
-            @apply absolute right-2 -bottom-3 px-2 flex items-end gap-[2px] max-w-[95%] overflow-hidden;
+            @apply text-offwhite  font-nasa text-sm whitespace-nowrap text-ellipsis;
+            @apply absolute right-1 -bottom-2 px-1 flex justify-end max-w-[95%] flex-wrap overflow-hidden h-[1.25em];
         }
 
         .tag-list li {
-            @apply hover:text-base hover:text-blue-accent;
+            @apply hover:text-base hover:text-blue-accent bg-gray-medium px-1;
         }
     </style>
 </li>

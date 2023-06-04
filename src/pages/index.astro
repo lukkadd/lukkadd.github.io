@@ -12,7 +12,7 @@ allPosts = allPosts.slice(0, 4)
             {
                 allPosts.map((post) => (
                     <Card
-                        href={post.url}
+                        href={post.url as string}
                         id={post.frontmatter.id}
                         image={post.frontmatter.image}
                         title={post.frontmatter.title}
