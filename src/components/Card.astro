@@ -24,7 +24,7 @@ const {
 } = Astro.props
 ---
 
-<li class="border-2 border-blue-accent relative">
+<li class="container-card border-2 border-blue-accent relative flex-grow">
     <h3 class="title">
         <a href={href}>{title}</a>
         {
@@ -44,14 +44,14 @@ const {
             )
         }
     </h3>
-    <div class="flex flex-col sm:flex-row sm:h-56 m-3 gap-3">
+    <div class="content-wrapper">
         <img
             src={image.url}
             alt={image.alt}
-            class="border-2 border-offwhite relative flex-shrink-0 h-full sm:aspect-[4/3] object-cover"
+            class="border-2 border-offwhite relative flex-shrink-0 h-full object-cover"
         />
-        <div class="flex-grow flex flex-col gap-2">
-            <div class="flex justify-between gap-2 text-offwhite">
+        <div class="flex-grow flex flex-col gap-2 relative pb-8">
+            <div class="flex justify-between gap-2">
                 <p>
                     <label>author:</label>
                     <span class="inline-block">{author}</span>
@@ -62,20 +62,19 @@ const {
                 </p>
             </div>
             <div class="flex-grow">
-                <p class="content text-offwhite text-ellipsis">
+                <label>description:</label>
+                <p class="content text-ellipsis">
                     {body}
                 </p>
             </div>
-            <a
-                href={href}
-                class="text-gray-medium bg-blue-accent float-right self-end font-nasa px-2"
-                >Read more...</a
-            >
         </div>
+        <a
+            href={href}
+            class="text-gray-medium bg-blue-accent float-right self-end font-nasa px-2 hover:text-white absolute right-3 bottom-4"
+            >Read more...</a
+        >
     </div>
-    <div
-        class="absolute bg-blue-accent -top-5 -right-3 border-8 border-gray-medium font-nasa font-semibold px-1 text-gray-medium"
-    >
+    <div class="id">
         #{id}
     </div>
     <ul class="tag-list">
@@ -89,11 +88,38 @@ const {
     </ul>
 
     <style>
+        .id {
+            @apply absolute bg-blue-accent -top-5 -right-3 border-8 border-gray-medium font-nasa font-semibold px-1 text-gray-medium;
+        }
+
+        .container-card {
+            container-type: inline-size;
+            container-name: card;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
         .title {
-            @apply m-3 pl-2 block bg-offwhite font-nasa uppercase text-gray-medium;
+            @apply m-3 pl-2 block bg-offwhite font-nasa uppercase text-gray-medium hover:text-white;
         }
         .title span a {
             @apply hover:text-white underline;
+        }
+
+        .content-wrapper {
+            @apply flex flex-col m-3 gap-3;
+        }
+
+        @container (min-width: 570px) {
+            .content-wrapper {
+                @apply flex-row h-56;
+            }
+
+            .content-wrapper img {
+                aspect-ratio: 4/3;
+            }
         }
 
         .content {
@@ -104,16 +130,24 @@ const {
         }
 
         label {
-            @apply uppercase font-nasa font-normal;
+            @apply uppercase font-nasa font-normal text-xs text-offwhite;
+        }
+
+        p {
+            @apply text-offwhite;
         }
 
         .tag-list {
-            @apply text-offwhite  font-nasa text-sm whitespace-nowrap text-ellipsis;
-            @apply absolute right-1 -bottom-2 px-1 flex justify-end max-w-[95%] flex-wrap overflow-hidden h-[1.25em];
+            @apply font-nasa text-sm whitespace-nowrap text-ellipsis;
+            @apply absolute right-1 -bottom-2 px-1 flex justify-end max-w-[95%] flex-wrap overflow-hidden h-[1.5em];
         }
 
         .tag-list li {
-            @apply hover:text-base hover:text-blue-accent bg-gray-medium px-1;
+            @apply bg-gray-medium px-1;
+        }
+
+        .tag-list a {
+            @apply text-offwhite hover:text-base hover:text-blue-accent;
         }
     </style>
 </li>

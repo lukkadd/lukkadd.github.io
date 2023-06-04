@@ -2,30 +2,73 @@
 import Layout from "../layouts/Layout.astro"
 import Card from "../components/Card.astro"
 let allPosts = await Astro.glob("../pages/posts/*.md")
-allPosts = allPosts.slice(0, 4)
+const heroPost = allPosts[0]
+allPosts = allPosts.slice(1, 4)
 ---
 
 <Layout title="Welcome to Astro.">
     <main class="ccontainer">
-        <h1 class="text-offwhite">Recent posts</h1>
-        <ul role="list" class="link-card-grid text-white">
+        <section id="latest-post">
+            <h2 class="text-offwhite">Latest post</h2>
             {
-                allPosts.map((post) => (
-                    <Card
-                        href={post.url as string}
-                        id={post.frontmatter.id}
-                        image={post.frontmatter.image}
-                        title={post.frontmatter.title}
-                        author={post.frontmatter.author}
-                        publishedDate={post.frontmatter.pubDate.slice(0, 10)}
-                        body={post.frontmatter.description}
-                        tags={post.frontmatter.tags}
-                        relatedUrls={post.frontmatter.relatedUrls}
-                    />
-                ))
+                heroPost && (
+                    <div class="hero-post">
+                        <Card
+                            href={heroPost.url as string}
+                            id={heroPost.frontmatter.id}
+                            image={heroPost.frontmatter.image}
+                            title={heroPost.frontmatter.title}
+                            author={heroPost.frontmatter.author}
+                            publishedDate={heroPost.frontmatter.pubDate.slice(
+                                0,
+                                10
+                            )}
+                            body={heroPost.frontmatter.description}
+                            tags={heroPost.frontmatter.tags}
+                            relatedUrls={heroPost.frontmatter.relatedUrls}
+                        />
+                    </div>
+                )
             }
-        </ul>
+        </section>
+
+        <div class="w-full border-t-2 border-offwhite mt-8 mb-6 opacity-50">
+        </div>
+
+        <section id="recent-posts">
+            <h2 class="text-offwhite">Recent posts</h2>
+            <ul role="list" class="link-card-grid">
+                {
+                    allPosts.map((post) => (
+                        <Card
+                            href={post.url as string}
+                            id={post.frontmatter.id}
+                            image={post.frontmatter.image}
+                            title={post.frontmatter.title}
+                            author={post.frontmatter.author}
+                            publishedDate={post.frontmatter.pubDate.slice(
+                                0,
+                                10
+                            )}
+                            body={post.frontmatter.description}
+                            tags={post.frontmatter.tags}
+                            relatedUrls={post.frontmatter.relatedUrls}
+                        />
+                    ))
+                }
+            </ul>
+        </section>
+
+        <a
+            href={"/archive"}
+            class="text-gray-medium bg-blue-accent font-nasa py-2 w-full block text-center hover:text-white"
+            >Browse all posts</a
+        >
     </main>
 </Layout>
 
-<style></style>
+<style>
+    .link-card-grid {
+        @apply flex flex-col gap-8 pb-8 sm:flex-row justify-center;
+    }
+</style>
