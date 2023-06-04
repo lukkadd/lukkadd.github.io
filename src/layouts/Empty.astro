@@ -1,0 +1,78 @@
+---
+export interface Props {
+    title: string
+}
+
+const { title } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Astro description" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>
+<style is:global>
+    /* Register your custom font family and tell the browser where to find it. */
+    @font-face {
+        font-family: Astro;
+        src: url("/fonts/Astro.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: Quicksand;
+        src: url("/fonts/Quicksand.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: Nasalization;
+        src: url("/fonts/Nasalization.otf") format("opentype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    :root {
+    }
+    html {
+        /* Lawrencium */
+        background: theme("colors.gray.medium"); /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+            to right,
+            theme("colors.gray.medium"),
+            theme("colors.gray.light") 45% 55%,
+            theme("colors.gray.medium")
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+            to right,
+
+            theme("colors.gray.medium"),
+            /* theme("colors.gray.light") 45% 55%, */
+                theme("colors.gray.medium")
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+    body {
+        min-height: 100vh;
+        font-family: "Quicksand";
+        position: relative;
+    }
+
+    code {
+        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+    }
+</style>
