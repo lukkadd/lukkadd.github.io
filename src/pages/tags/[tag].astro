@@ -1,0 +1,27 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import { CollectionEntry, getCollection } from "astro:content"
+
+export interface Props {
+    posts: CollectionEntry<"blog">[]
+}
+
+export async function getStaticPaths() {
+    const blogPosts = await getCollection("blog")
+    const tags = [...new Set(blogPosts.map((post) => post.data.tags).flat())]
+    return tags.map((tag) => ({
+        params: { tag: tag },
+        props: { posts: blogPosts },
+    }))
+}
+
+//Ignore merge declaration error, possibly a bug with astro's runtime
+const { tag } = Astro.params
+const { posts } = Astro.props
+const filteredPosts = posts.filter((post) => post.data.tags.includes(tag))
+---
+
+<Layout title={tag}>
+    <p>Posts tagged with {tag}</p>
+    {filteredPosts.map((post) => <p>{post.data.title}</p>)}
+</Layout>

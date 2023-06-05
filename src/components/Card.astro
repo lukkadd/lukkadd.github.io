@@ -1,41 +1,25 @@
 ---
+import type { CollectionEntry } from "astro:content"
 export interface Props {
-    title: string
-    id: number
-    body: string
-    href: string
-    tags: string[]
-    relatedUrls: string[]
-    author: string
-    publishedDate: string
-    image: { url: string; alt: string }
+    post: CollectionEntry<"blog">
 }
 
-const {
-    href,
-    title,
-    id,
-    body,
-    tags,
-    relatedUrls,
-    author,
-    publishedDate,
-    image,
-} = Astro.props
+const { post } = Astro.props
 ---
 
 <li class="container-card border-2 border-blue-accent relative flex-grow">
     <h3 class="title">
-        <a href={href}>{title}</a>
+        <a href={post.slug}>{post.data.title}</a>
         {
-            relatedUrls.length > 0 && (
+            post.data.relatedUrls.length > 0 && (
                 <>
                     - [
-                    {relatedUrls.map((url, index) => {
+                    {post.data.relatedUrls.map((url, index) => {
                         return (
                             <span>
                                 <a href={url}>{index + 1}</a>
-                                {index != relatedUrls.length - 1 && "a"}
+                                {index != post.data.relatedUrls.length - 1 &&
+                                    "a"}
                             </span>
                         )
                     })}
@@ -46,40 +30,42 @@ const {
     </h3>
     <div class="content-wrapper">
         <img
-            src={image.url}
-            alt={image.alt}
+            src={post.data.image.src}
+            alt={post.data.image.alt}
             class="border-2 border-offwhite relative flex-shrink-0 h-full object-cover"
         />
         <div class="flex-grow flex flex-col gap-2 relative pb-8">
             <div class="flex justify-between gap-2">
                 <p>
                     <label>author:</label>
-                    <span class="inline-block">{author}</span>
+                    <span class="inline-block">{post.data.author}</span>
                 </p>
                 <p>
                     <label>Star date:</label>
-                    <span class="inline-block">{publishedDate}</span>
+                    <span class="inline-block"
+                        >{post.data.publishDate.toLocaleDateString()}</span
+                    >
                 </p>
             </div>
             <div class="flex-grow">
                 <label>description:</label>
                 <p class="content text-ellipsis">
-                    {body}
+                    {post.data.description}
                 </p>
             </div>
         </div>
         <a
-            href={href}
+            href={post.slug}
             class="text-gray-medium bg-blue-accent float-right self-end font-nasa px-2 hover:text-white absolute right-3 bottom-4"
             >Read more...</a
         >
     </div>
     <div class="id">
-        #{id}
+        #{post.data.id}
     </div>
     <ul class="tag-list">
         {
-            tags.map((tag) => (
+            post.data.tags.map((tag) => (
                 <li>
                     <a href={"/tags/" + tag}>/{tag}</a>
                 </li>
@@ -125,7 +111,7 @@ const {
         .content {
             display: -webkit-box;
             -webkit-box-orient: vertical;
-            -webkit-line-clamp: 6;
+            -webkit-line-clamp: 4;
             overflow: hidden;
         }
 

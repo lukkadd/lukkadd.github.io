@@ -1,15 +1,14 @@
 ---
-title: "The Indiana Conjecture"
-id: 1
-pubDate: 2023-06-01
+title: "The Engineer's Falacy"
+id: 3
+publishDate: 2023-06-01
 description: "This is the first post of my new Astro blog."
 author: "Lucca Del Debbio"
 image:
-    url: "https://docs.astro.build/assets/full-logo-light.png"
+    src: "https://docs.astro.build/assets/full-logo-light.png"
     alt: "The full Astro logo."
 tags:
     [
-        "astro",
         "blogging",
         "archery",
         "horseback riding",

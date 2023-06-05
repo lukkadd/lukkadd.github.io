@@ -1,7 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro"
 import Card from "../../components/Card.astro"
-let allPosts = await Astro.glob("../../pages/posts/*.md")
+import { getCollection } from "astro:content"
+let allPosts = await getCollection("blog")
 const heroPost = allPosts[0]
 allPosts = allPosts.slice(1, 4)
 ---
@@ -13,20 +14,7 @@ allPosts = allPosts.slice(1, 4)
             {
                 heroPost && (
                     <div class="hero-post">
-                        <Card
-                            href={heroPost.url as string}
-                            id={heroPost.frontmatter.id}
-                            image={heroPost.frontmatter.image}
-                            title={heroPost.frontmatter.title}
-                            author={heroPost.frontmatter.author}
-                            publishedDate={heroPost.frontmatter.pubDate.slice(
-                                0,
-                                10
-                            )}
-                            body={heroPost.frontmatter.description}
-                            tags={heroPost.frontmatter.tags}
-                            relatedUrls={heroPost.frontmatter.relatedUrls}
-                        />
+                        <Card post={heroPost} />
                     </div>
                 )
             }
@@ -35,27 +23,10 @@ allPosts = allPosts.slice(1, 4)
         <div class="w-full border-t-2 border-offwhite mt-8 mb-6 opacity-50">
         </div>
 
-        <section id="recent-posts">
+        <section id="recent-posts" class="pb-8">
             <h2 class="text-offwhite">Recent posts</h2>
             <ul role="list" class="link-card-grid">
-                {
-                    allPosts.map((post) => (
-                        <Card
-                            href={post.url as string}
-                            id={post.frontmatter.id}
-                            image={post.frontmatter.image}
-                            title={post.frontmatter.title}
-                            author={post.frontmatter.author}
-                            publishedDate={post.frontmatter.pubDate.slice(
-                                0,
-                                10
-                            )}
-                            body={post.frontmatter.description}
-                            tags={post.frontmatter.tags}
-                            relatedUrls={post.frontmatter.relatedUrls}
-                        />
-                    ))
-                }
+                {allPosts.map((post) => <Card post={post} />)}
             </ul>
         </section>
 
@@ -69,6 +40,6 @@ allPosts = allPosts.slice(1, 4)
 
 <style>
     .link-card-grid {
-        @apply flex flex-col gap-8 pb-8 sm:flex-row justify-center;
+        @apply grid grid-cols-1 sm:grid-cols-2 gap-8;
     }
 </style>
