@@ -7,14 +7,7 @@ description: "This is the first post of my new Astro blog."
 image:
     src: "https://docs.astro.build/assets/full-logo-light.png"
     alt: "The full Astro logo."
-tags:
-    [
-        "blogging",
-        "archery",
-        "horseback riding",
-        "learning in public",
-        "Machine learning",
-    ]
+tags: ["programming"]
 relatedUrls: []
 ---
 

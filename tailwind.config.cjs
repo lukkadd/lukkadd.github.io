@@ -22,10 +22,12 @@ module.exports = {
                     dark: "#151110",
                     medium: "#212121",
                     light: "#414141",
+                    faded: "#464745",
                 },
                 offwhite: "#d9c8a9",
                 blue: {
                     accent: "#8bc4c2",
+                    desaturated: "#37423e",
                 },
             },
         },

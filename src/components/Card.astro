@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content"
+
 export interface Props {
     post: CollectionEntry<"blog">
 }
@@ -12,19 +13,21 @@ const { post } = Astro.props
         <a href={post.slug}>{post.data.title}</a>
         {
             post.data.relatedUrls.length > 0 && (
-                <>
-                    - [
+                <span>
+                    {"-"}
                     {post.data.relatedUrls.map((url, index) => {
-                        return (
-                            <span>
-                                <a href={url}>{index + 1}</a>
-                                {index != post.data.relatedUrls.length - 1 &&
-                                    "a"}
-                            </span>
-                        )
+                        //prettier-ignore
+                        return ( url.slug !== post.slug ? 
+                                <span>
+                                    <a href={url.slug}>{index + 1}</a>{index !=post.data.relatedUrls.length - 1 && ","}
+                                </span>
+                                :
+                                <span>
+                                    {index + 1}{index !=post.data.relatedUrls.length - 1 && ","}
+                                </span>
+                            )
                     })}
-                    ]
-                </>
+                </span>
             )
         }
     </h3>
@@ -34,7 +37,7 @@ const { post } = Astro.props
             alt={post.data.image.alt}
             class="border-2 border-offwhite relative flex-shrink-0 h-full object-cover"
         />
-        <div class="flex-grow flex flex-col gap-2 relative pb-8">
+        <div class="flex-grow flex flex-col gap-2 relative pb-9">
             <div class="flex justify-between gap-2">
                 <p>
                     <label>author:</label>
@@ -56,7 +59,7 @@ const { post } = Astro.props
         </div>
         <a
             href={post.slug}
-            class="text-gray-medium bg-blue-accent float-right self-end font-nasa px-2 hover:text-white absolute right-3 bottom-4"
+            class="text-gray-medium bg-blue-accent float-right self-end font-nasa px-2 hover:text-white absolute right-3 bottom-4 hover:text-glow-sm-white"
             >Read more...</a
         >
     </div>
@@ -88,10 +91,17 @@ const { post } = Astro.props
         }
 
         .title {
-            @apply m-3 pl-2 block bg-offwhite font-nasa uppercase text-gray-medium hover:text-white;
+            @apply m-3 pl-2 block bg-offwhite;
+            @apply flex flex-wrap items-end gap-2;
+            @apply font-nasa uppercase text-gray-medium;
         }
+
+        .title a {
+            @apply hover:text-white hover:text-glow-sm-white;
+        }
+
         .title span a {
-            @apply hover:text-white underline;
+            @apply underline;
         }
 
         .content-wrapper {

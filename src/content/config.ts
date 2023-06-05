@@ -1,5 +1,5 @@
 // 1. Import utilities from `astro:content`
-import { z, defineCollection } from "astro:content"
+import { z, defineCollection, reference } from "astro:content"
 
 // 2. Define your collection(s)
 const blogCollection = defineCollection({
@@ -15,7 +15,7 @@ const blogCollection = defineCollection({
         title: z.string(),
         description: z.string(),
         tags: z.array(z.string()),
-        relatedUrls: z.array(z.string()),
+        relatedUrls: z.array(reference("blog")),
     }),
 })
 

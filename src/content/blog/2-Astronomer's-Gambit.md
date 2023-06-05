@@ -11,11 +11,7 @@ image:
 tags:
     [
         "astro",
-        "blogging",
-        "archery",
-        "horseback riding",
-        "learning in public",
-        "Machine learning",
+        "programming",
     ]
 relatedUrls: []
 ---
