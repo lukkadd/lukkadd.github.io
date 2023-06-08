@@ -70,7 +70,7 @@ const { post } = Astro.props
         {
             post.data.tags.map((tag) => (
                 <li>
-                    <a href={"/tags/" + tag}>/{tag}</a>
+                    <a href={"/tags/" + tag.slug}>/{tag.slug}</a>
                 </li>
             ))
         }
@@ -143,7 +143,7 @@ const { post } = Astro.props
         }
 
         .tag-list a {
-            @apply text-offwhite hover:text-base hover:text-blue-accent;
+            @apply text-offwhite hover:text-base hover:text-blue-accent hover:text-glow-sm-blue-accent;
         }
     </style>
 </li>

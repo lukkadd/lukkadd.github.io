@@ -7,10 +7,10 @@ export interface Props {
 }
 
 export async function getStaticPaths() {
+    const tags = await getCollection("tags")
     const blogPosts = await getCollection("blog")
-    const tags = [...new Set(blogPosts.map((post) => post.data.tags).flat())]
     return tags.map((tag) => ({
-        params: { tag: tag },
+        params: { tag: tag.slug },
         props: { posts: blogPosts },
     }))
 }
@@ -18,10 +18,13 @@ export async function getStaticPaths() {
 //Ignore merge declaration error, possibly a bug with astro's runtime
 const { tag } = Astro.params
 const { posts } = Astro.props
-const filteredPosts = posts.filter((post) => post.data.tags.includes(tag))
+
+const filteredPosts = posts.filter((post) =>
+    post.data.tags.find((t) => t.slug == tag)
+)
 ---
 
-<Layout title={tag}>
+<Layout title={tag as string}>
     <p>Posts tagged with {tag}</p>
     {filteredPosts.map((post) => <p>{post.data.title}</p>)}
 </Layout>

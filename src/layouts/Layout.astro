@@ -55,21 +55,23 @@ const { title } = Astro.props
     :root {
     }
     html {
-        /* Lawrencium */
-        background: theme("colors.gray.medium"); /* fallback for old browsers */
-        background: -webkit-linear-gradient(
+        background-image: linear-gradient(
             to right,
-            theme("colors.gray.medium"),
-            theme("colors.gray.light") 45% 55%,
-            theme("colors.gray.medium")
-        ); /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(
-            to right,
-
-            theme("colors.gray.medium"),
-            /* theme("colors.gray.light") 45% 55%, */
-                theme("colors.gray.medium")
-        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            theme("colors.gray.dark"),
+            theme("colors.gray.medium") 45% 55%,
+            theme("colors.gray.dark")
+        );
+    }
+    html::after {
+        content: "";
+        background-image: url("/stardust.png");
+        opacity: 0.4;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
     }
     body {
         min-height: 100vh;

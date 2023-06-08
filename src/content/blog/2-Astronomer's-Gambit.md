@@ -10,7 +10,6 @@ image:
     alt: "The full Astro logo."
 tags:
     [
-        "astro",
         "programming",
     ]
 relatedUrls: []
