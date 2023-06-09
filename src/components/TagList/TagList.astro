@@ -21,7 +21,7 @@ const tags = Object.entries(
         <ul class="w-full flex gap-2">
             {
                 tags.map(([label, count]) => (
-                    <li>
+                    <li class=" text-offwhite hover:text-white hover:text-glow-sm-white">
                         <a href={"tags/" + label} class="flex">
                             <p class="bg-blue-desaturated text-blue-accent border-r-2 border-offwhite text-glow-sm-blue-accent min-w-[2.5ch] text-center">
                                 {count}
@@ -38,7 +38,7 @@ const tags = Object.entries(
 
 <style>
     p {
-        @apply text-offwhite font-nasa p-1 uppercase whitespace-nowrap;
+        @apply font-nasa p-1 uppercase whitespace-nowrap;
     }
 
     .cscrollbar::-webkit-scrollbar-track {
@@ -65,9 +65,5 @@ const tags = Object.entries(
     .right-arrow {
         @apply w-8 my-2 bg-offwhite;
         clip-path: polygon(0 0, 0 100%, 100% 50%);
-    }
-
-    li:hover {
-        box-shadow: 0 0 8px 2px theme(colors.gray.light);
     }
 </style>

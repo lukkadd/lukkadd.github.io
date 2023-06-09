@@ -77,6 +77,18 @@ const { post } = Astro.props
     </ul>
 
     <style>
+        li {
+            list-style-type: none;
+        }
+
+        label {
+            @apply uppercase font-nasa font-normal text-xs text-offwhite;
+        }
+
+        p {
+            @apply text-offwhite;
+        }
+
         .id {
             @apply absolute bg-blue-accent -top-5 -right-3 border-8 border-gray-medium font-nasa font-semibold px-1 text-gray-medium;
         }
@@ -84,10 +96,6 @@ const { post } = Astro.props
         .container-card {
             container-type: inline-size;
             container-name: card;
-        }
-
-        li {
-            list-style-type: none;
         }
 
         .title {
@@ -125,17 +133,9 @@ const { post } = Astro.props
             overflow: hidden;
         }
 
-        label {
-            @apply uppercase font-nasa font-normal text-xs text-offwhite;
-        }
-
-        p {
-            @apply text-offwhite;
-        }
-
         .tag-list {
             @apply font-nasa text-sm whitespace-nowrap text-ellipsis;
-            @apply absolute right-1 -bottom-2 px-1 flex justify-end max-w-[95%] flex-wrap overflow-hidden h-[1.5em];
+            @apply absolute right-1 -bottom-3 px-1 flex justify-end max-w-[95%] flex-wrap overflow-hidden h-6;
         }
 
         .tag-list li {
