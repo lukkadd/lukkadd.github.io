@@ -34,27 +34,20 @@ module.exports = {
     },
     plugins: [
         function ({ addComponents, matchUtilities, theme }) {
-            addComponents({
-                ".ccontainer": {
-                    margin: "auto",
-                    padding: "1.5rem",
-                    maxWidth: "80ch",
+            matchUtilities(
+                {
+                    "text-glow-sm": (value) => ({
+                        "text-shadow": "0 0 5px " + value,
+                    }),
+                    "text-glow-md": (value) => ({
+                        "text-shadow": "0 0 15px " + value,
+                    }),
                 },
-            }),
-                matchUtilities(
-                    {
-                        "text-glow-sm": (value) => ({
-                            "text-shadow": "0 0 5px " + value,
-                        }),
-                        "text-glow-md": (value) => ({
-                            "text-shadow": "0 0 15px " + value,
-                        }),
-                    },
-                    {
-                        values: flattenColorPalette(theme("colors")),
-                        type: "color",
-                    }
-                )
+                {
+                    values: flattenColorPalette(theme("colors")),
+                    type: "color",
+                }
+            )
         },
     ],
 }

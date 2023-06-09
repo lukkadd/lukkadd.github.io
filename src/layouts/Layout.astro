@@ -19,7 +19,7 @@ const { title } = Astro.props
         <title>{title}</title>
     </head>
     <body>
-        <div class="pb-12">
+        <div class="pb-20">
             <Header />
             <slot />
         </div>
@@ -54,15 +54,8 @@ const { title } = Astro.props
 
     :root {
     }
-    html {
-        background-image: linear-gradient(
-            to right,
-            theme("colors.gray.dark"),
-            theme("colors.gray.medium") 45% 55%,
-            theme("colors.gray.dark")
-        );
-    }
-    html::after {
+
+    body::after {
         content: "";
         background-image: url("/stardust.png");
         opacity: 0.4;
@@ -74,9 +67,21 @@ const { title } = Astro.props
         z-index: -1;
     }
     body {
+        background-image: linear-gradient(
+            to right,
+            theme("colors.gray.dark"),
+            theme("colors.gray.medium") 45% 55%,
+            theme("colors.gray.dark")
+        );
+
         min-height: 100vh;
         font-family: "Quicksand";
         position: relative;
+    }
+
+    .ccontainer {
+        @apply m-auto p-6 max-w-[80ch];
+        @apply bg-gray-medium rounded-lg shadow-lg shadow-gray-darkest;
     }
 
     code {
