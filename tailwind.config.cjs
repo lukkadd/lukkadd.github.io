@@ -12,6 +12,7 @@ module.exports = {
                 body: ["Quicksand"],
                 nasa: ["Nasalization"],
                 space: ["SpaceMono"],
+                squada: ["SquadaOne"],
             },
             colors: {
                 hr: {

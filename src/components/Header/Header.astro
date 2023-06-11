@@ -2,7 +2,7 @@
 import Avatar from "./Avatar.astro"
 ---
 
-<header class="text-offwhite p-6">
+<header class="text-offwhite pt-6 px-6">
     <div class="flex gap-4 sm:flex-col-reverse justify-between items-center">
         <section id="info-lucca">
             <a href="/dev" class="name-anchor">
@@ -29,7 +29,7 @@ import Avatar from "./Avatar.astro"
             <Avatar size={80} src="/avatar2.jpg" />
             <nav class="half-nav">
                 <ul>
-                    <li><a href="#">Projects</a></li>
+                    <li><a href="/projects">Projects</a></li>
                     <li><a href="/about">About</a></li>
                 </ul>
             </nav>
@@ -38,8 +38,8 @@ import Avatar from "./Avatar.astro"
     <nav class="full-nav">
         <ul>
             <li><a href="/dev">Home</a></li>
-            <li><a href="#">Archive</a></li>
-            <li><a href="#">Projects</a></li>
+            <li><a href="/archive">Archive</a></li>
+            <li><a href="/projects">Projects</a></li>
             <li><a href="/about">About</a></li>
         </ul>
     </nav>
@@ -65,7 +65,6 @@ import Avatar from "./Avatar.astro"
        use different widths for the header and the rest of the content */
     header {
         margin: auto;
-        padding: 1.5rem;
         max-width: 100ch;
     }
 

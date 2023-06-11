@@ -19,7 +19,7 @@ const { title } = Astro.props
         <title>{title}</title>
     </head>
     <body>
-        <div class="pb-20">
+        <div class="pb-12">
             <Header />
             <slot />
         </div>
@@ -47,6 +47,14 @@ const { title } = Astro.props
     @font-face {
         font-family: Nasalization;
         src: url("/fonts/Nasalization.otf") format("opentype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: SquadaOne;
+        src: url("/fonts/SquadaOne-Regular.ttf") format("truetype");
         font-weight: normal;
         font-style: normal;
         font-display: swap;
