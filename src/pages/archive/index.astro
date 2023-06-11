@@ -2,22 +2,22 @@
 import { getCollection } from "astro:content"
 import Layout from "../../layouts/Layout.astro"
 import Card from "../../components/Card.astro"
-import TagList from "../../components/TagList/TagList.astro"
+import FlatPanel from "../../components/FlatPanel.astro"
+import H1 from "../../components/Typography/H1.astro"
+import Divider from "../../components/Divider.astro"
 const allPosts = await getCollection("blog")
 ---
 
 <Layout title="Archive">
-    <main class="ccontainer mflat-panel flex flex-col gap-8">
-        <div class="flex items-center gap-3">
-            <h1 class="text-offwhite font-nasa text-3xl">Archive</h1>
-            <div class="border-t-2 border-offwhite flex-grow h-1/2"></div>
-        </div>
-
-        <TagList />
-
-        <ul role="list" class="link-card-grid">
-            {allPosts.map((post) => <Card post={post} />)}
-        </ul>
+    <main class="ccontainer">
+        <FlatPanel className="flex flex-col gap-8">
+            <Divider>
+                <H1 slot="before">Archive</H1>
+            </Divider>
+            <ul role="list" class="link-card-grid">
+                {allPosts.map((post) => <Card post={post} />)}
+            </ul>
+        </FlatPanel>
     </main>
 </Layout>
 

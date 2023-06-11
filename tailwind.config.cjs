@@ -11,8 +11,13 @@ module.exports = {
                 display: ["Astro"],
                 body: ["Quicksand"],
                 nasa: ["Nasalization"],
+                space: ["SpaceMono"],
             },
             colors: {
+                hr: {
+                    blue: "#32AFFF",
+                    pink: "#FF3C64",
+                },
                 purple: {
                     dark: "#0f0c29",
                     light: "#302b63",

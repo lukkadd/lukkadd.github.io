@@ -11,6 +11,7 @@ image:
 tags:
     [
         "programming",
+        "astro",
     ]
 relatedUrls: []
 ---

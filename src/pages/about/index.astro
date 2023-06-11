@@ -1,0 +1,65 @@
+---
+import Divider from "../../components/Divider.astro"
+import FlatPanel from "../../components/FlatPanel.astro"
+import H1 from "../../components/Typography/H1.astro"
+import Layout from "../../layouts/Layout.astro"
+---
+
+<Layout title="tags">
+    <main class="ccontainer">
+        <FlatPanel>
+            <Divider>
+                <H1 slot="before">Personnel File</H1>
+            </Divider>
+            <div
+                class="flex flex-col-reverse gap-4 sm:flex-row sm:justify-between mt-4"
+            >
+                <div class="flex flex-col gap-3">
+                    <div>
+                        <label>name:</label>
+                        <p>Lucca Del Debbio</p>
+                    </div>
+
+                    <div>
+                        <label>date of birth:</label>
+                        <p>16/09/1997</p>
+                    </div>
+                    <div>
+                        <label>place of birth:</label>
+                        <p>São Paulo, Brazil</p>
+                    </div>
+
+                    <div>
+                        <label>Qualifications:</label>
+                        <p>Bachelor's Degree in Computer Science</p>
+                    </div>
+                    <div>
+                        <label>rank:</label>
+                        <p>Web/Game Developer at Hacker Rangers</p>
+                    </div>
+                </div>
+                <div
+                    class="border-2 border-blue-accent w-full relative max-w-[256px]"
+                >
+                    <img src="./avatar2.jpg" />
+                    <div class="absolute bottom-0 w-full bg-blue-accent">
+                        <p
+                            class="font-space font-bold text-xs text-end text-gray-medium"
+                        >
+                            FILE ID: 12314562
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </FlatPanel>
+    </main>
+</Layout>
+
+<style>
+    label {
+        @apply font-nasa text-xs uppercase;
+    }
+    p {
+        @apply font-space;
+    }
+</style>

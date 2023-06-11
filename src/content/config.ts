@@ -22,19 +22,13 @@ const blogCollection = defineCollection({
 const tagCollection = defineCollection({
     type: "content", // v2.5.0 and later
     schema: z.object({
-        id: z.number(),
-        publishDate: z.date(),
-        author: z.string(),
+        label: z.string(),
         image: z.optional(
             z.object({
                 src: z.string(),
                 alt: z.string(),
             })
         ),
-        title: z.string(),
-        description: z.string(),
-        tags: z.array(reference("tags")),
-        relatedUrls: z.array(reference("blog")),
     }),
 })
 
@@ -42,4 +36,5 @@ const tagCollection = defineCollection({
 //    This key should match your collection directory name in "src/content"
 export const collections = {
     blog: blogCollection,
+    tags: tagCollection,
 }
