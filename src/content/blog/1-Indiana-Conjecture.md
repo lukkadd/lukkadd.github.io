@@ -5,7 +5,7 @@ author: Lucca Del Debbio
 publishDate: 2023-06-01
 description: "This is the first post of my new Astro blog."
 image:
-    src: "https://docs.astro.build/assets/full-logo-light.png"
+    src: "https://s1.static.brasilescola.uol.com.br/be/conteudo/images/imagem-em-lente-convexa.jpg"
     alt: "The full Astro logo."
 tags: ["programming"]
 relatedUrls: []

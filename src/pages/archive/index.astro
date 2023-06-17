@@ -5,6 +5,7 @@ import Card from "../../components/Card.astro"
 import FlatPanel from "../../components/FlatPanel.astro"
 import H1 from "../../components/Typography/H1.astro"
 import Divider from "../../components/Divider.astro"
+import Search from "../../components/Inputs/Search.astro"
 const allPosts = await getCollection("blog")
 ---
 
@@ -14,6 +15,9 @@ const allPosts = await getCollection("blog")
             <Divider>
                 <H1 slot="before">Archive</H1>
             </Divider>
+            <div class="flex justify-end">
+                <Search />
+            </div>
             <ul role="list" class="link-card-grid">
                 {allPosts.map((post) => <Card post={post} />)}
             </ul>

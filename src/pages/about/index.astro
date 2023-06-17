@@ -3,6 +3,8 @@ import Divider from "../../components/Divider.astro"
 import FlatPanel from "../../components/FlatPanel.astro"
 import H1 from "../../components/Typography/H1.astro"
 import Layout from "../../layouts/Layout.astro"
+
+const dateOfBirth = new Date("1997-09-16T21:00:00")
 ---
 
 <Layout title="about">
@@ -24,7 +26,12 @@ import Layout from "../../layouts/Layout.astro"
                             <p
                                 class="font-space font-bold text-xs text-end text-gray-medium"
                             >
-                                FILE ID: 12314562
+                                FILE ID: {
+                                    dateOfBirth
+                                        .getTime()
+                                        .toString()
+                                        .slice(0, 10)
+                                }
                             </p>
                         </div>
                     </div>
@@ -38,7 +45,7 @@ import Layout from "../../layouts/Layout.astro"
                         >
                             <div>
                                 <label>date of birth:</label>
-                                <p>16/09/1997</p>
+                                <p>{dateOfBirth.toLocaleDateString()}</p>
                             </div>
                             <div>
                                 <label>place of birth:</label>
