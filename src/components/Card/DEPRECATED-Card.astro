@@ -75,75 +75,74 @@ const { post } = Astro.props
             ))
         }
     </ul>
-
-    <style>
-        li {
-            list-style-type: none;
-        }
-
-        label {
-            @apply uppercase font-nasa font-normal text-xs text-offwhite;
-        }
-
-        p {
-            @apply text-offwhite;
-        }
-
-        .id {
-            @apply absolute bg-blue-accent -top-5 -right-3 border-8 border-gray-medium font-nasa font-semibold px-1 text-gray-medium;
-        }
-
-        .container-card {
-            container-type: inline-size;
-            container-name: card;
-        }
-
-        .title {
-            @apply m-3 pl-2 block bg-offwhite;
-            @apply flex flex-wrap items-end gap-2;
-            @apply font-nasa uppercase text-gray-medium;
-        }
-
-        .title a {
-            @apply hover:text-white hover:text-glow-sm-white;
-        }
-
-        .title span a {
-            @apply underline;
-        }
-
-        .content-wrapper {
-            @apply flex flex-col m-3 gap-3;
-        }
-
-        @container (min-width: 570px) {
-            .content-wrapper {
-                @apply flex-row h-56;
-            }
-
-            .content-wrapper img {
-                @apply w-auto;
-            }
-        }
-
-        .content {
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 4;
-            overflow: hidden;
-        }
-
-        .tag-list {
-            @apply font-nasa text-sm whitespace-nowrap text-ellipsis;
-            @apply absolute right-1 -bottom-3 px-1 flex justify-end max-w-[95%] flex-wrap overflow-hidden h-6;
-        }
-
-        .tag-list li {
-            @apply bg-gray-medium px-1;
-        }
-
-        .tag-list a {
-            @apply text-offwhite hover:text-base hover:text-blue-accent hover:text-glow-sm-blue-accent;
-        }
-    </style>
 </li>
+<style>
+    li {
+        list-style-type: none;
+    }
+
+    label {
+        @apply uppercase font-nasa font-normal text-xs text-offwhite;
+    }
+
+    p {
+        @apply text-offwhite;
+    }
+
+    .id {
+        @apply absolute bg-blue-accent -top-5 -right-3 border-8 border-gray-medium font-nasa font-semibold px-1 text-gray-medium;
+    }
+
+    .container-card {
+        container-type: inline-size;
+        container-name: card;
+    }
+
+    .title {
+        @apply m-3 pl-2 block bg-offwhite;
+        @apply flex flex-wrap items-end gap-2;
+        @apply font-nasa uppercase text-gray-medium;
+    }
+
+    .title a {
+        @apply hover:text-white hover:text-glow-sm-white;
+    }
+
+    .title span a {
+        @apply underline;
+    }
+
+    .content-wrapper {
+        @apply flex flex-col m-3 gap-3;
+    }
+
+    @container (min-width: 570px) {
+        .content-wrapper {
+            @apply flex-row h-56;
+        }
+
+        .content-wrapper img {
+            @apply w-auto;
+        }
+    }
+
+    .content {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        overflow: hidden;
+    }
+
+    .tag-list {
+        @apply font-nasa text-sm whitespace-nowrap text-ellipsis;
+        @apply absolute right-1 -bottom-3 px-1 flex justify-end max-w-[95%] flex-wrap overflow-hidden h-6;
+    }
+
+    .tag-list li {
+        @apply bg-gray-medium px-1;
+    }
+
+    .tag-list a {
+        @apply text-offwhite hover:text-base hover:text-blue-accent hover:text-glow-sm-blue-accent;
+    }
+</style>

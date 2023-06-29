@@ -1,14 +1,14 @@
 ---
-title: "The Indiana Conjecture"
-id: 1
-author: Lucca Del Debbio
+title: "How to get infinite money by doing nothing and scratching your balls all day"
+id: 4
 publishDate: 2023-06-01
 description: "This is the first post of my new Astro blog."
+author: "Lucca Del Debbio"
 image:
-    src: "https://s1.static.brasilescola.uol.com.br/be/conteudo/images/imagem-em-lente-convexa.jpg"
+    src: "https://docs.astro.build/assets/full-logo-light.png"
     alt: "The full Astro logo."
-tags: ["programming"]
-relatedUrls: ["1-indiana-conjecture", "2-astronomers-gambit"]
+tags: []
+relatedUrls: []
 ---
 
 # My First Blog Post
