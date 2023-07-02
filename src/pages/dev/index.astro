@@ -3,6 +3,8 @@ import Layout from "../../layouts/Layout.astro"
 import Card from "../../components/Card/Card"
 import { getCollection } from "astro:content"
 import FlatPanel from "../../components/FlatPanel.astro"
+import Divider from "../../components/Divider.astro"
+import H1 from "../../components/Typography/H1.astro"
 let allPosts = await getCollection("blog")
 const heroPost = allPosts[0]
 allPosts = allPosts.slice(1, 4)
@@ -11,8 +13,10 @@ allPosts = allPosts.slice(1, 4)
 <Layout title="Home">
     <main class="ccontainer">
         <FlatPanel>
-            <section id="latest-post">
-                <h2 class="text-offwhite text-3xl font-nasa">Latest post</h2>
+            <section id="latest-post" class="flex flex-col gap-2">
+                <Divider>
+                    <H1 slot="before">Latest post</H1>
+                </Divider>
                 {
                     heroPost && (
                         <div class="hero-post">

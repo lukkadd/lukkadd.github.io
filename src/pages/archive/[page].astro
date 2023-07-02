@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content"
+import Layout from "../../layouts/Layout.astro"
+import FlatPanel from "../../components/FlatPanel.astro"
+import Divider from "../../components/Divider.astro"
+import H1 from "../../components/Typography/H1.astro"
+import SearchList from "../../components/SearchList/SearchList"
+import type { GetStaticPathsOptions } from "astro"
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+    const blogPosts = await getCollection("blog")
+
+    // Generate pages from our array of astronauts, with 2 to a page
+    return paginate(blogPosts, { pageSize: 2 })
+}
+// All paginated data is passed on the "page" prop
+const { page } = Astro.props
+---
+
+<!--Display the current page number. Astro.params.page can also be used!-->
+<Layout title="Archive">
+    <main class="ccontainer">
+        <FlatPanel className="flex flex-col gap-2">
+            <Divider>
+                <H1 slot="before">Archive</H1>
+            </Divider>
+            <SearchList client:only="react" posts={page.data} />
+        </FlatPanel>
+    </main>
+
+    <style>
+        .link-card-grid {
+            @apply grid grid-cols-1 sm:grid-cols-2 gap-8;
+        }
+
+        .clip {
+            @apply w-10 h-10 absolute bg-black;
+        }
+    </style>
+</Layout>
