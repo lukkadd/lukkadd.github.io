@@ -1,0 +1,41 @@
+---
+import { Icon } from "astro-icon/components"
+
+import styles from "./Search.module.css"
+
+import type { HTMLAttributes } from "astro/types"
+
+export interface Props extends HTMLAttributes<"input"> {
+    className?: string
+}
+
+const { className, ...props } = Astro.props
+---
+
+<label for="search" class={styles.searchWrapper}>
+    <div class="w-full relative">
+        <input
+            class={`${styles.searchInput} ${className || ""}`}
+            {...props}
+            placeholder="Search..."
+            id="search"
+        />
+        <button class={styles.clearIcon} id="clearButton">
+            <Icon name="close" class="h-6" />
+        </button>
+    </div>
+    <button class={styles.searchIcon}>
+        <Icon name="search" class="w-6 h-6" />
+    </button>
+</label>
+
+<script>
+    // Find all buttons with the `alert` class on the page.
+    const searchClearButton = document.getElementById("clearButton")
+    const searchInput = document.getElementById("search") as HTMLInputElement
+
+    // Handle clicks on each button.
+    searchClearButton?.addEventListener("click", () => {
+        searchInput.value = ""
+    })
+</script>

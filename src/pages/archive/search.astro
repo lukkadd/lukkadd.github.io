@@ -5,16 +5,17 @@ import FlatPanel from "../../components/FlatPanel.astro"
 import Divider from "../../components/Divider.astro"
 import H1 from "../../components/Typography/H1.astro"
 import SearchList from "../../components/SearchList/SearchList.astro"
-import type { GetStaticPathsOptions } from "astro"
 import Card from "../../components/Card/Card.astro"
+import type { GetStaticPathsOptions } from "astro"
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
     const blogPosts = await getCollection("blog")
 
     return paginate(blogPosts, { pageSize: 10 })
 }
-// All paginated data is passed on the "page" prop
-const { page } = Astro.props
+
+const allPosts = await getCollection("blog")
+console.log(allPosts)
 ---
 
 <!--Display the current page number. Astro.params.page can also be used!-->
@@ -27,7 +28,7 @@ const { page } = Astro.props
             <!-- <SearchList client:only="react" posts={page.data} /> -->
             <SearchList />
             <ul role="list" class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                {page.data.map((post) => <Card post={post} />)}
+                <!-- {page.data.map((post) => <Card post={post} />)} -->
             </ul>
         </FlatPanel>
     </main>
@@ -42,3 +43,5 @@ const { page } = Astro.props
         }
     </style>
 </Layout>
+
+<script></script>

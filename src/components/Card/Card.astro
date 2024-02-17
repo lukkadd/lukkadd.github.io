@@ -1,0 +1,148 @@
+---
+import type { CollectionEntry } from "astro:content"
+
+export interface Props {
+    post: CollectionEntry<"blog">
+}
+
+const { post } = Astro.props
+---
+
+<li class="container-card border-2 border-blue-accent relative flex-grow">
+    <h3 class="title">
+        <a href={post.slug}>{post.data.title}</a>
+        {
+            post.data.relatedUrls.length > 0 && (
+                <span>
+                    {"-"}
+                    {post.data.relatedUrls.map((url, index) => {
+                        //prettier-ignore
+                        return ( url.slug !== post.slug ? 
+                                <span>
+                                    <a href={url.slug}>{index + 1}</a>{index !=post.data.relatedUrls.length - 1 && ","}
+                                </span>
+                                :
+                                <span>
+                                    {index + 1}{index !=post.data.relatedUrls.length - 1 && ","}
+                                </span>
+                            )
+                    })}
+                </span>
+            )
+        }
+    </h3>
+    <div class="content-wrapper">
+        <img
+            src={post.data.image.src}
+            alt={post.data.image.alt}
+            class="border-2 border-offwhite relative h-full flex-shrink-0 object-cover aspect-[4/3]"
+        />
+        <div class="flex-grow flex flex-col gap-2 relative pb-9">
+            <div class="flex justify-between gap-2">
+                <p>
+                    <label>author:</label>
+                    <span class="inline-block">{post.data.author}</span>
+                </p>
+                <p>
+                    <label>Star date:</label>
+                    <span class="inline-block"
+                        >{post.data.publishDate.toLocaleDateString()}</span
+                    >
+                </p>
+            </div>
+            <div class="flex-grow">
+                <label>description:</label>
+                <p class="content text-ellipsis">
+                    {post.data.description}
+                </p>
+            </div>
+        </div>
+        <a
+            href={post.slug}
+            class="text-gray-medium bg-blue-accent float-right self-end font-nasa px-2 hover:text-white absolute right-3 bottom-4 hover:text-glow-sm-white"
+            >Read more...</a
+        >
+    </div>
+    <div class="id">
+        #{post.data.id}
+    </div>
+    <ul class="tag-list">
+        {
+            post.data.tags.map((tag) => (
+                <li>
+                    <a href={"/tags/" + tag.slug}>/{tag.slug}</a>
+                </li>
+            ))
+        }
+    </ul>
+</li>
+<style>
+    li {
+        list-style-type: none;
+    }
+
+    label {
+        @apply uppercase font-nasa font-normal text-xs text-offwhite;
+    }
+
+    p {
+        @apply text-offwhite;
+    }
+
+    .id {
+        @apply absolute bg-blue-accent -top-5 -right-3 border-8 border-gray-medium font-nasa font-semibold px-1 text-gray-medium;
+    }
+
+    .container-card {
+        container-type: inline-size;
+        container-name: card;
+    }
+
+    .title {
+        @apply m-3 pl-2 block bg-offwhite;
+        @apply flex flex-wrap items-end gap-2;
+        @apply font-nasa uppercase text-gray-medium;
+    }
+
+    .title a {
+        @apply hover:text-white hover:text-glow-sm-white;
+    }
+
+    .title span a {
+        @apply underline;
+    }
+
+    .content-wrapper {
+        @apply flex flex-col m-3 gap-3;
+    }
+
+    @container (min-width: 570px) {
+        .content-wrapper {
+            @apply flex-row h-56;
+        }
+
+        .content-wrapper img {
+            @apply w-auto;
+        }
+    }
+
+    .content {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        overflow: hidden;
+    }
+
+    .tag-list {
+        @apply font-nasa text-sm whitespace-nowrap text-ellipsis;
+        @apply absolute right-1 -bottom-3 px-1 flex justify-end max-w-[95%] flex-wrap overflow-hidden h-6;
+    }
+
+    .tag-list li {
+        @apply bg-gray-medium px-1;
+    }
+
+    .tag-list a {
+        @apply text-offwhite hover:text-base hover:text-blue-accent hover:text-glow-sm-blue-accent;
+    }
+</style>

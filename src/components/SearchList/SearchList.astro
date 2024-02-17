@@ -1,0 +1,16 @@
+---
+import Search from "../Inputs/Search.astro"
+---
+
+<div class="flex justify-end mb-4">
+    <div class="w-full max-w-xs">
+        <Search id="search" />
+    </div>
+</div>
+
+<script>
+    let searchInput = document.getElementById("search") as HTMLInputElement
+    searchInput.addEventListener("change", (e) => {
+        console.log(e.target.value)
+    })
+</script>

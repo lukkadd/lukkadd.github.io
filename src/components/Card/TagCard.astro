@@ -1,0 +1,31 @@
+---
+import { Icon } from "astro-icon/components"
+import type { CollectionEntry } from "astro:content"
+
+export interface Props {
+    tag: CollectionEntry<"tags">
+    count: number
+}
+
+const { tag, count } = Astro.props
+---
+
+<li>
+    <a
+        href={"/tags/" + tag.slug}
+        class="border-l-2 border-offwhite pl-2 flex justify-between hover:border-blue-accent hover:text-blue-accent hover:text-glow-sm-blue-accent"
+    >
+        <h3
+            class="text-xl flex items-center gap-2 font-nasa lowercase cursor-pointer"
+        >
+            <Icon name={tag.data.icon || "tag"} />
+            <span class="underline">{tag.data.label}</span>
+        </h3>
+        {count ?? 0} posts
+    </a>
+</li>
+<style>
+    li {
+        list-style-type: none;
+    }
+</style>

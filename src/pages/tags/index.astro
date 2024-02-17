@@ -1,12 +1,49 @@
 ---
+import { getCollection } from "astro:content"
 import FlatPanel from "../../components/FlatPanel.astro"
 import Layout from "../../layouts/Layout.astro"
+import TagCard from "../../components/Card/TagCard.astro"
+import { Icon } from "astro-icon/components"
+
+const tags = await getCollection("tags")
+const blogPosts = await getCollection("blog")
+const counts: { [key: string]: number } = {}
+blogPosts.forEach((post) => {
+    post.data.tags.forEach((tag) => {
+        counts[tag.slug] =
+            counts[tag.slug] !== undefined ? counts[tag.slug]! + 1 : 1
+    })
+})
+const tagsCount = tags.length
+const postsCount = blogPosts.length
 ---
 
-<Layout title="tags">
+<Layout title={"tags"}>
     <main class="ccontainer">
         <FlatPanel>
-            <p>sdadsads</p>
+            <div class="flex items-center gap-3">
+                <Icon name="tag" size={28} />
+                <h1 class="text-offwhite font-nasa text-3xl uppercase">tags</h1>
+                <div class="border-t-2 border-offwhite flex-grow h-1/2"></div>
+            </div>
+            <div class="flex justify-between">
+                <p class="text-offwhite">
+                    {postsCount} posts across {tagsCount} tags
+                </p>
+                <p
+                    class="text-offwhite hover:text-blue-accent hover:text-glow-sm-blue-accent"
+                >
+                    <a href="/archive/1">See all posts</a>
+                </p>
+            </div>
+
+            <ul class="flex flex-col gap-2 mt-2">
+                {
+                    tags.map((tag) => (
+                        <TagCard tag={tag} count={counts[tag.slug]!} />
+                    ))
+                }
+            </ul>
         </FlatPanel>
     </main>
 </Layout>

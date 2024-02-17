@@ -1,7 +1,7 @@
 ---
 import FlatPanel from "../../components/FlatPanel.astro"
 import Layout from "../../layouts/Layout.astro"
-import { CollectionEntry, getCollection } from "astro:content"
+import { type CollectionEntry, getCollection } from "astro:content"
 
 export interface Props {
     posts: CollectionEntry<"blog">[]
@@ -16,7 +16,6 @@ export async function getStaticPaths() {
     }))
 }
 
-//Ignore merge declaration error, possibly a bug with astro's runtime
 const { tag } = Astro.params
 const { posts } = Astro.props
 

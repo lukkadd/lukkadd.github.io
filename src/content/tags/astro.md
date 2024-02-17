@@ -1,3 +1,4 @@
 ---
 label: "astro"
+icon: "astro"
 ---

@@ -23,12 +23,7 @@ const tagCollection = defineCollection({
     type: "content", // v2.5.0 and later
     schema: z.object({
         label: z.string(),
-        image: z.optional(
-            z.object({
-                src: z.string(),
-                alt: z.string(),
-            })
-        ),
+        icon: z.optional(z.string()),
     }),
 })
 
