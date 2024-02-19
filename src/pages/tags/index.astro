@@ -3,6 +3,7 @@ import { getCollection } from "astro:content"
 import FlatPanel from "../../components/FlatPanel.astro"
 import Layout from "../../layouts/Layout.astro"
 import TagCard from "../../components/Card/TagCard.astro"
+import Anchor from "../../components/Anchor.astro"
 import { Icon } from "astro-icon/components"
 
 const tags = await getCollection("tags")
@@ -30,11 +31,7 @@ const postsCount = blogPosts.length
                 <p class="text-offwhite">
                     {postsCount} posts across {tagsCount} tags
                 </p>
-                <p
-                    class="text-offwhite hover:text-blue-accent hover:text-glow-sm-blue-accent"
-                >
-                    <a href="/archive/1">See all posts</a>
-                </p>
+                <Anchor href="/archive/1">See all posts</Anchor>
             </div>
 
             <ul class="flex flex-col gap-2 mt-2">

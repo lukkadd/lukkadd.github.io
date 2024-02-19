@@ -1,4 +1,5 @@
 ---
+import Anchor from "../Anchor.astro"
 import Avatar from "./Avatar.astro"
 ---
 
@@ -15,39 +16,36 @@ import Avatar from "./Avatar.astro"
             <p
                 class="font-body text-sm opacity-80 sm:text-center text-offwhite"
             >
-                <i>Developer, Maker and self-identified Crazy Scientist</i>
+                <i>Developer, Maker and self-proclaimed Crazy Scientist</i>
             </p>
         </section>
 
         <div class="sm:w-full sm:grid sm:grid-cols-[1fr_190px_1fr]">
             <nav class="half-nav">
                 <ul>
-                    <li><a href="/dev">Home</a></li>
-                    <li><a href="/archive">Archive</a></li>
+                    <li><Anchor href="/dev">Home</Anchor></li>
+                    <li><Anchor href="/archive">Archive</Anchor></li>
                 </ul>
             </nav>
             <Avatar size={80} src="/avatar2.jpg" />
             <nav class="half-nav">
                 <ul>
-                    <li><a href="/projects">Projects</a></li>
-                    <li><a href="/about">About</a></li>
+                    <li><Anchor href="/projects">Projects</Anchor></li>
+                    <li><Anchor href="/about">About</Anchor></li>
                 </ul>
             </nav>
         </div>
     </div>
     <nav class="full-nav">
         <ul>
-            <li><a href="/dev">Home</a></li>
-            <li><a href="/archive">Archive</a></li>
-            <li><a href="/projects">Projects</a></li>
-            <li><a href="/about">About</a></li>
+            <li><Anchor href="/dev">Home</Anchor></li>
+            <li><Anchor href="/archive">Archive</Anchor></li>
+            <li><Anchor href="/projects">Projects</Anchor></li>
+            <li><Anchor href="/about">About</Anchor></li>
         </ul>
     </nav>
 </header>
 <style>
-    nav a:hover {
-        @apply underline text-blue-accent text-glow-sm-blue-accent;
-    }
     .name-anchor:hover span {
         @apply underline;
     }

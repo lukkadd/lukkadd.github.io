@@ -19,7 +19,7 @@ const { tag, count } = Astro.props
             class="text-xl flex items-center gap-2 font-nasa lowercase cursor-pointer"
         >
             <Icon name={tag.data.icon || "tag"} />
-            <span class="underline">{tag.data.label}</span>
+            <span>{tag.data.label}</span>
         </h3>
         {count ?? 0} posts
     </a>

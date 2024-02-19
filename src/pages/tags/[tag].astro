@@ -1,10 +1,13 @@
 ---
+import { Icon } from "astro-icon/components"
 import FlatPanel from "../../components/FlatPanel.astro"
 import Layout from "../../layouts/Layout.astro"
 import { type CollectionEntry, getCollection } from "astro:content"
+import Anchor from "../../components/Anchor.astro"
 
 export interface Props {
     posts: CollectionEntry<"blog">[]
+    tagData: CollectionEntry<"tags">
 }
 
 export async function getStaticPaths() {
@@ -12,12 +15,12 @@ export async function getStaticPaths() {
     const blogPosts = await getCollection("blog")
     return tags.map((tag) => ({
         params: { tag: tag.slug },
-        props: { posts: blogPosts },
+        props: { posts: blogPosts, tagData: tag },
     }))
 }
 
 const { tag } = Astro.params
-const { posts } = Astro.props
+const { posts, tagData } = Astro.props
 
 const filteredPosts = posts.filter((post) =>
     post.data.tags.find((t) => t.slug == tag)
@@ -29,16 +32,17 @@ const postsCount = filteredPosts.length
     <main class="ccontainer">
         <FlatPanel>
             <div class="flex items-center gap-3">
+                <Icon name={tagData.data.icon ?? "tag"} size={28} />
                 <h1 class="text-offwhite font-nasa text-3xl uppercase">
-                    #{tag}
+                    {tagData.data.label}
                 </h1>
                 <div class="border-t-2 border-offwhite flex-grow h-1/2"></div>
             </div>
             <div class="flex justify-between">
                 <p class="text-offwhite">
-                    {postsCount} posts tagged with {tag}
+                    {postsCount} posts tagged with {tagData.data.label}
                 </p>
-                <p class="text-offwhite"><a href="/tags">See all tags</a></p>
+                <Anchor href="/tags">See all tags</Anchor>
             </div>
             {filteredPosts.map((post) => <p>{post.data.title}</p>)}
         </FlatPanel>
