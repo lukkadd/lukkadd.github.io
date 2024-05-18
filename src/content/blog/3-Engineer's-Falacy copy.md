@@ -7,7 +7,7 @@ author: "Lucca Del Debbio"
 image:
     src: "https://docs.astro.build/assets/full-logo-light.png"
     alt: "The full Astro logo."
-tags: []
+tags: ["null"]
 relatedUrls: []
 ---
 
