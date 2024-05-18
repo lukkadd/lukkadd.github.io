@@ -1,0 +1,27 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import FlatPanel from "../../components/FlatPanel.astro"
+import MarkdownPost from "../../layouts/MarkdownPost.astro"
+
+import { getCollection } from "astro:content"
+
+export async function getStaticPaths() {
+    const blogPosts = await getCollection("blog")
+    return blogPosts.map((entry) => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }))
+}
+const { entry } = Astro.props
+const { Content } = await entry.render()
+---
+
+<Layout title={entry.data.title}>
+    <main class="ccontainer">
+        <FlatPanel>
+            <MarkdownPost>
+                <Content />
+            </MarkdownPost>
+        </FlatPanel>
+    </main>
+</Layout>

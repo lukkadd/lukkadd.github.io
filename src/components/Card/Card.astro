@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets"
 import type { CollectionEntry } from "astro:content"
 
 export interface Props {
@@ -10,7 +11,7 @@ const { post } = Astro.props
 
 <li class="container-card border-2 border-blue-accent relative flex-grow">
     <h3 class="title">
-        <a href={post.slug}>{post.data.title}</a>
+        <a href={"/posts/" + post.slug}>{post.data.title}</a>
         {
             post.data.relatedUrls.length > 0 && (
                 <span>
@@ -19,7 +20,7 @@ const { post } = Astro.props
                         //prettier-ignore
                         return ( url.slug !== post.slug ? 
                                 <span>
-                                    <a href={url.slug}>{index + 1}</a>{index !=post.data.relatedUrls.length - 1 && ","}
+                                    <a href={"/posts/" + url.slug}>{index + 1}</a>{index !=post.data.relatedUrls.length - 1 && ","}
                                 </span>
                                 :
                                 <span>
@@ -32,7 +33,9 @@ const { post } = Astro.props
         }
     </h3>
     <div class="content-wrapper">
-        <img
+        <Image
+            loading={"eager"}
+            inferSize
             src={post.data.image.src}
             alt={post.data.image.alt}
             class="border-2 border-offwhite relative h-full flex-shrink-0 object-cover aspect-[4/3]"
@@ -58,7 +61,7 @@ const { post } = Astro.props
             </div>
         </div>
         <a
-            href={post.slug}
+            href={"/posts/" + post.slug}
             class="text-gray-medium bg-blue-accent float-right self-end font-nasa px-2 hover:text-white absolute right-3 bottom-4 hover:text-glow-sm-white"
             >Read more...</a
         >
