@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets"
+import ProfilePicture from "../../assets/images/avatar2.jpg"
 import Divider from "../../components/Divider.astro"
 import FlatPanel from "../../components/FlatPanel.astro"
 import H1 from "../../components/Typography/H1.astro"
@@ -21,7 +23,7 @@ const dateOfBirth = new Date("1997-09-16T21:00:00")
                     <div
                         class="self-center sm:self-start border-2 border-blue-accent w-full relative max-w-[300px]"
                     >
-                        <img src="./avatar2.jpg" />
+                        <Image src={ProfilePicture} alt="profile_picture" />
                         <div class="absolute bottom-0 w-full bg-blue-accent">
                             <p
                                 class="font-space font-bold text-xs text-end text-gray-medium"
@@ -37,23 +39,23 @@ const dateOfBirth = new Date("1997-09-16T21:00:00")
                     </div>
                     <div class="flex flex-col gap-3">
                         <div>
-                            <label>name:</label>
+                            <p class="label">name:</p>
                             <p>Lucca Del Debbio</p>
                         </div>
                         <div
                             class="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-2 gap-3"
                         >
                             <div>
-                                <label>date of birth:</label>
+                                <p class="label">date of birth:</p>
                                 <p>{dateOfBirth.toLocaleDateString()}</p>
                             </div>
                             <div>
-                                <label>place of birth:</label>
+                                <p class="label">place of birth:</p>
                                 <p>São Paulo, Brazil</p>
                             </div>
                         </div>
                         <div>
-                            <label>rank:</label>
+                            <p class="label">rank:</p>
                             <p>
                                 Web/Game Developer at <a
                                     href="https://hackerrangers.com"
@@ -64,7 +66,7 @@ const dateOfBirth = new Date("1997-09-16T21:00:00")
                             </p>
                         </div>
                         <div>
-                            <label>Qualifications:</label>
+                            <p class="label">Qualifications:</p>
                             <p>Bachelor's Degree in Computer Science</p>
                         </div>
                     </div>
@@ -75,7 +77,7 @@ const dateOfBirth = new Date("1997-09-16T21:00:00")
 </Layout>
 
 <style>
-    label {
+    .label {
         @apply font-nasa text-xs uppercase;
     }
     p {

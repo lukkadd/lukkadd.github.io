@@ -40,18 +40,18 @@ const { post } = Astro.props
         <div class="flex-grow flex flex-col gap-2 relative pb-9">
             <div class="flex justify-between gap-2">
                 <p>
-                    <label>author:</label>
+                    <span class="label">author:</span>
                     <span class="inline-block">{post.data.author}</span>
                 </p>
                 <p>
-                    <label>Star date:</label>
+                    <span class="label">Star date:</span>
                     <span class="inline-block"
                         >{post.data.publishDate.toLocaleDateString()}</span
                     >
                 </p>
             </div>
             <div class="flex-grow">
-                <label>description:</label>
+                <p class="label">description:</p>
                 <p class="content text-ellipsis">
                     {post.data.description}
                 </p>
@@ -81,7 +81,7 @@ const { post } = Astro.props
         list-style-type: none;
     }
 
-    label {
+    .label {
         @apply uppercase font-nasa font-normal text-xs text-offwhite;
     }
 

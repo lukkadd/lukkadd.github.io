@@ -4,6 +4,7 @@ import FlatPanel from "../../components/FlatPanel.astro"
 import Layout from "../../layouts/Layout.astro"
 import { type CollectionEntry, getCollection } from "astro:content"
 import Anchor from "../../components/Anchor.astro"
+import Card from "../../components/Card/Card.astro"
 
 export interface Props {
     posts: CollectionEntry<"blog">[]
@@ -32,19 +33,26 @@ const postsCount = filteredPosts.length
     <main class="ccontainer">
         <FlatPanel>
             <div class="flex items-center gap-3">
-                <Icon name={tagData.data.icon ?? "tag"} size={28} />
-                <h1 class="text-offwhite font-nasa text-3xl uppercase">
+                <Icon
+                    name={tagData.data.icon ?? "tag"}
+                    class="flex-shrink-0 w-7 h-7 max-sm:hidden"
+                />
+                <h1
+                    class="text-offwhite font-nasa text-xl sm:text-3xl uppercase break-words overflow-hidden"
+                >
                     {tagData.data.label}
                 </h1>
                 <div class="border-t-2 border-offwhite flex-grow h-1/2"></div>
             </div>
-            <div class="flex justify-between">
+            <div class="flex justify-between flex-col sm:flex-row gap-1">
                 <p class="text-offwhite">
                     {postsCount} posts tagged with {tagData.data.label}
                 </p>
                 <Anchor href="/tags">See all tags</Anchor>
             </div>
-            {filteredPosts.map((post) => <p>{post.data.title}</p>)}
+            <ul role="list" class="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-8">
+                {filteredPosts.map((post) => <Card post={post} />)}
+            </ul>
         </FlatPanel>
     </main>
 </Layout>
