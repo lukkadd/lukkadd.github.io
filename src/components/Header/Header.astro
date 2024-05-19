@@ -1,6 +1,7 @@
 ---
 import Anchor from "../Anchor.astro"
 import Avatar from "./Avatar.astro"
+import avatarImg from "../../assets/images/avatar2.jpg"
 ---
 
 <header class="text-offwhite pt-6 px-6">
@@ -27,7 +28,7 @@ import Avatar from "./Avatar.astro"
                     <li><Anchor href="/archive">Archive</Anchor></li>
                 </ul>
             </nav>
-            <Avatar size={80} src="/avatar2.jpg" />
+            <Avatar size={80} src={avatarImg} />
             <nav class="half-nav">
                 <ul>
                     <li><Anchor href="/projects">Projects</Anchor></li>

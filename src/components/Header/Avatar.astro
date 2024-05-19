@@ -1,6 +1,9 @@
 ---
+import type { ImageMetadata } from "astro"
+import { Image } from "astro:assets"
+
 export interface Props {
-    src: string
+    src: ImageMetadata
     size: number
     className?: string
 }
@@ -18,7 +21,13 @@ const { src, size, className } = Astro.props
         <div class="frame h-[64%] w-[64%]">
             <div class="right-chevron"></div>
         </div>
-        <img src={src} width={size} alt="Avatar" class="avatar" />
+        <Image
+            src={src}
+            width={size}
+            alt="Avatar"
+            class="avatar"
+            loading={"eager"}
+        />
     </div>
 </div>
 
