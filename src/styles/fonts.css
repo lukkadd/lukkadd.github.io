@@ -1,0 +1,72 @@
+@font-face {
+    font-family: Quicksand;
+    src: url("/fonts/quicksand/Quicksand-VariableFont_wght.ttf")
+        format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: SquadaOne;
+    src: url("/fonts/squada_one/SquadaOne-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: SpaceMono;
+    src: url("/fonts/space_mono/SpaceMono-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: SpaceMono;
+    src: url("/fonts/space_mono/SpaceMono-BoldItalic.ttf") format("truetype");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: SpaceMono;
+    src: url("/fonts/space_mono/SpaceMono-Italic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: SpaceMono;
+    src: url("/fonts/space_mono/SpaceMono-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Astro;
+    src: url("/fonts/astro/Astro.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: SkateBlade;
+    src: url("/fonts/sb_skate_blade/Skateblade-Italic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: SkateBlade;
+    src: url("/fonts/sb_skate_blade/Skateblade-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

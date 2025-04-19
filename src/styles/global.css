@@ -1,1 +1,53 @@
 @import "tailwindcss";
+@import "./fonts.css";
+
+@theme {
+    /* Colors */
+    --color-hr-blue: #32afff;
+    --color-hr-pink: #ff3c64;
+
+    --color-purple-dark: #0f0c29;
+    --color-purple-light: #302b63;
+
+    --color-gray-darkest: #0d0908;
+    --color-gray-dark: #151110;
+    --color-gray-medium: #212121;
+    --color-gray-light: #414141;
+    --color-gray-faded: #464745;
+
+    --color-offwhite: #d9c8a9;
+
+    --color-blue-accent: #8bc4c2;
+    --color-blue-desaturated: #37423e;
+
+    /* Fonts */
+    --font-base: Quicksand, var(--font-sans);
+    --font-squada: SquadaOne, var(--font-sans);
+    --font-space: SpaceMono, var(--font-mono);
+    --font-astro: Astro, var(--font-sans);
+    --font-skateblade: SkateBlade, var(--font-sans);
+}
+
+@utility bg-gradient-hero {
+    background-image: linear-gradient(
+        to right,
+        var(--color-gray-dark),
+        var(--color-gray-medium) 45% 55%,
+        var(--color-gray-dark)
+    );
+    &::after {
+        content: "";
+        background-image: url("/stardust.png");
+        opacity: 0.4;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+    }
+}
+
+body {
+    @apply text-offwhite bg-gradient-hero font-base m-4;
+}
