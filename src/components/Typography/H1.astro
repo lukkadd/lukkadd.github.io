@@ -1,9 +1,0 @@
----
-import type { HTMLAttributes } from "astro/types"
-export type Props = HTMLAttributes<"h1">
-const { class: className, ...rest } = Astro.props
----
-
-<h1 class:list={["font-nasa text-offwhite text-3xl", className]} {...rest}>
-    <slot />
-</h1>
