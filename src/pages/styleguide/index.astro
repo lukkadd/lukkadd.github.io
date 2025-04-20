@@ -1,0 +1,16 @@
+---
+import Logo from '../../components/logo.astro'
+import EmptyLayout from '../../layouts/emptyLayout.astro'
+import TypographyPanel from './_typographyPanel.astro'
+---
+
+<EmptyLayout title="test">
+    <div class="flex justify-between items-end">
+        <h1>STYLE GUIDE</h1>
+        <Logo />
+    </div>
+    <hr class="opacity-50 my-4" />
+    <div class="flex flex-wrap">
+        <TypographyPanel />
+    </div>
+</EmptyLayout>

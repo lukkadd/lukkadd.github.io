@@ -1,0 +1,16 @@
+---
+export interface Props {
+    className?: string;
+}
+
+const { className } = Astro.props;
+---
+
+<div
+    class:list={[
+        "bg-gray-medium rounded-lg shadow-lg shadow-gray-darkest p-6",
+        className,
+    ]}
+>
+    <slot />
+</div>

@@ -70,3 +70,19 @@
     font-style: normal;
     font-display: swap;
 }
+
+@font-face {
+    font-family: Lumia;
+    src: url("/fonts/lumia/Lumia.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Audiowide;
+    src: url("/fonts/audiowide/Audiowide-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

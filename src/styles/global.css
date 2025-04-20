@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "./fonts.css";
+@import 'tailwindcss';
+@import './fonts.css';
 
 @theme {
     /* Colors */
@@ -22,10 +22,12 @@
 
     /* Fonts */
     --font-base: Quicksand, var(--font-sans);
-    --font-squada: SquadaOne, var(--font-sans);
+    --font-hr: SquadaOne, var(--font-sans);
     --font-space: SpaceMono, var(--font-mono);
     --font-astro: Astro, var(--font-sans);
     --font-skateblade: SkateBlade, var(--font-sans);
+    --font-lumia: Lumia, var(--font-sans);
+    --font-audiowide: Audiowide, var(--font-sans);
 }
 
 @utility bg-gradient-hero {
@@ -36,8 +38,8 @@
         var(--color-gray-dark)
     );
     &::after {
-        content: "";
-        background-image: url("/stardust.png");
+        content: '';
+        background-image: url('/stardust.png');
         opacity: 0.4;
         top: 0;
         left: 0;
@@ -48,6 +50,27 @@
     }
 }
 
-body {
-    @apply text-offwhite bg-gradient-hero font-base m-4;
+@utility text-glow-sm-* {
+    text-shadow: 0 0 5px --value(--color- *);
+}
+@layer base {
+    body {
+        @apply text-offwhite bg-gradient-hero font-base m-4 text-base;
+    }
+
+    h1 {
+        @apply text-5xl font-audiowide;
+    }
+
+    h2 {
+        @apply text-4xl font-audiowide;
+    }
+
+    h3 {
+        @apply text-3xl font-audiowide;
+    }
+
+    p {
+        @apply text-base font-base;
+    }
 }

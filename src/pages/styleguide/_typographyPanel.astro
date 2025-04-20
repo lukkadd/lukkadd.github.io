@@ -1,0 +1,45 @@
+---
+import HR from '../../components/hr.astro'
+import Logo from '../../components/logo.astro'
+import Panel from '../../components/panel.astro'
+import StyleLabel from './_styleLabel.astro'
+---
+
+<Panel>
+    <h2 class="mb-4">Typography</h2>
+
+    <StyleLabel label="Heading 1">
+        <h1>The quick brown fox jumps over the lazy dog</h1>
+        <p slot="classes"></p>
+    </StyleLabel>
+
+    <StyleLabel label="Heading 2">
+        <h2>The quick brown fox jumps over the lazy dog</h2>
+        <p slot="classes"></p>
+    </StyleLabel>
+
+    <StyleLabel label="Heading 3">
+        <h3>The quick brown fox jumps over the lazy dog</h3>
+        <p slot="classes"></p>
+    </StyleLabel>
+
+    <StyleLabel label="Base/Copy">
+        <p>The quick brown fox jumps over the lazy dog</p>
+        <p slot="classes"></p>
+    </StyleLabel>
+
+    <StyleLabel label="Labels">
+        <p class="font-space">The quick brown fox jumps over the lazy dog</p>
+        <p slot="classes"></p>
+    </StyleLabel>
+
+    <StyleLabel label="Logo">
+        <Logo />
+        <p slot="classes"></p>
+    </StyleLabel>
+
+    <StyleLabel label="Hacker Rangers Logo">
+        <HR />
+        <p slot="classes"></p>
+    </StyleLabel>
+</Panel>
