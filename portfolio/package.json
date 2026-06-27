@@ -1,0 +1,27 @@
+{
+    "name": "portfolio",
+    "type": "module",
+    "version": "0.0.1",
+    "engines": {
+        "node": ">=22.12.0"
+    },
+    "scripts": {
+        "dev": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro"
+    },
+    "dependencies": {
+        "@astrojs/ts-plugin": "^1.10.9",
+        "@tailwindcss/vite": "^4.3.1",
+        "astro": "^7.0.3",
+        "tailwindcss": "^4.3.1"
+    },
+    "devDependencies": {
+        "typescript": "^6.0.3"
+    },
+    "allowScripts": {
+        "esbuild@0.28.1": true,
+        "sharp@0.34.5": true
+    }
+}

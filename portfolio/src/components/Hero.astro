@@ -1,0 +1,26 @@
+---
+import Avatar from "./Avatar.astro"
+---
+
+<section id="info-lucca">
+    <Avatar size={80} src="/avatar2.jpg" />
+    <h2 class="font-display text-center mt-4">
+        <span class="firstName">Lucca</span> <span class="lastName">
+            Del Debbio</span>
+    </h2>
+    <p class="font-body text-sm opacity-80 text-center text-offwhite">
+        <i>Developer, Maker and self-identified Crazy Scientist</i>
+    </p>
+</section>
+
+<style>
+    @reference "../styles/global.css";
+
+    h2 .firstName {
+        @apply text-blue-accent text-shadow-[0_0_5px_var(--color-blue-accent)]
+    }
+
+ h2 .lastName {
+        @apply text-shadow-[0_0_5px_white] text-white;
+    }
+</style>
