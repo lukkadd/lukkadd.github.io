@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets' 
+
 export interface Props {
     src: string
     size: number
@@ -18,11 +20,13 @@ const { src, size, className } = Astro.props
         <div class="frame h-[64%] w-[64%]">
             <div class="right-chevron"></div>
         </div>
-        <img src={src} width={size} alt="Avatar" class="avatar" />
+        <Image src={src} width={size} height={size} alt="Avatar" class="avatar" />
     </div>
 </div>
 
 <style define:vars={{ size }}>
+ @reference "../styles/global.css";
+
     .avatar {
         object-fit: cover;
         aspect-ratio: 1/1;
@@ -48,8 +52,8 @@ const { src, size, className } = Astro.props
 
         rotate: 45deg;
 
-        border-top: 2px solid var(--colors-offwhite);
-        border-right: 2px solid var(--colors-offwhite);
+        border-top: 2px solid var(--color-offwhite);
+        border-right: 2px solid var(--color-offwhite);
     }
     .left-chevron {
         position: absolute;
@@ -61,7 +65,7 @@ const { src, size, className } = Astro.props
 
         rotate: 45deg;
 
-        border-left: 2px solid var(--colors-offwhite);
-        border-bottom: 2px solid var(--colors-offwhite);
+        border-left: 2px solid var(--color-offwhite);
+        border-bottom: 2px solid var(--color-offwhite);
     }
 </style>

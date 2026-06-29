@@ -19,6 +19,8 @@
     --color-blue-desaturated: #37423e;
 
     --font-quicksand: var(--font-quicksand);
+    --font-megrim: var(--font-megrim);
+    --font-asimovian: var(--font-asimovian);
 }
 
 html, body {

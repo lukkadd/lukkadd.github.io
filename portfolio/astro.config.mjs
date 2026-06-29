@@ -19,5 +19,10 @@ export default defineConfig({
         style: 'normal'
       }]
     }
-  }]
+  },
+  {
+    provider: fontProviders.google(),
+    name: "Asimovian",
+    cssVariable: "--font-asimovian",
+  },]
 });

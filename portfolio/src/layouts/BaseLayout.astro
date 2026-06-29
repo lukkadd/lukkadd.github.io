@@ -1,4 +1,7 @@
 ---
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
+
 import { Font } from "astro:assets"
 import "../styles/global.css"
 interface Props {
@@ -14,12 +17,17 @@ const { title } = Astro.props
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
+		<Font cssVariable="--font-asimovian"/>
 		<Font cssVariable="--font-quicksand"/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="flex flex-col items-center">
+	    <Header/>
+	    <main class="flex-grow p-6 max-w-7xl w-full">
 		<slot />
+	    </main>
+	    <Footer/>
 	</body>
 </html>
 
